@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //not yet add <<code install>> from cntl shift p
 public class Helloworld {
   public static void main(String [] args) {
@@ -8,3 +9,10 @@ public class Helloworld {
   }
 }
 //this is the end of file
+=======
+public class Helloworld {
+  public static void main (String[]args) {
+    System.out.println("Hello world!");
+  }
+}
+>>>>>>> 402ecf4cc7bdb9823fa132ec4ab8e12838b81e4f
