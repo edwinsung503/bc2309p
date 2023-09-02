@@ -124,6 +124,26 @@ public class DataType {
     l1 /= 10; // l1 = l1 / 10;
     System.out.println(l1);//5000
 
-    
+    //String supports +=
+    String k2 = "abc";
+    k2 += " bcd"; // k2 = k2 + " bcd";
+    System.out.println(k2);//abc bcd
+
+    //float 
+    int i = 1;//By default, Java treat 1 is an integer value 
+    double d4 = 3.0;//By default, Java treat 3.0 is a double value 
+    double d5 = 3.0d;// Explicitly assign a double value to a variable value
+    //float f = 3.0;//Not ok, By default, Java treat 3.0 is a double value , need to assign a float value to a variable value 
+    float f = 3.0f;//
+
+    //byte, short, int, long -> all of them handle Integer
+    //Size : byte<short<int< long
+    byte b3 = 3;//Not 3b
+    short s3 = 4;//Not 4s
+    int i3 = 5;//default int value
+    long l4 = 5;// (upcast), you can ignore today
+    long l5 = 5L;//Assisgn long value 5 to long variable
+
+    //8 Primitive + String <
   }
 }
