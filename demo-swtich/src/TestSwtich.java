@@ -1,5 +1,5 @@
 public class TestSwtich {
-  public static void main(String[]args) {
+  public static void main(String[]args) {//只有幾個scenairo 先會用
     int score = 90;
     char grade = ' ';
     switch (score) {// check if score match anyone of the following cases
