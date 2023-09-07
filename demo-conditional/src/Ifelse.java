@@ -28,11 +28,11 @@ public class Ifelse {
       System.out.println("y > 9");//print
     }
 
-
+    //05Sep lesson
     int a = 10;
     int b = 3;
 
-    if (a < 9 || b > 2){ // false || true -> true
+    if (a < 9 || b > 2){ // false(10 < 9?) || true (3 > 2?)-> true
       System.out.println("a < 9 or  b >2");
     }
 

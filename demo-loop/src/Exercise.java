@@ -3,7 +3,7 @@ public class Exercise {
     //1,2,3,4,5,6,7,8,9,10
     int sum = 0;
     
-    for (int i = 1 ; i < 11 ; i++) { //
+    for (int i = 1 ; i < 11 ; i++) { // 佢用i = 1 , 唔用i = 0 因為個i 用係加數
       //sum = sum + i;
       sum += i;
     }
@@ -25,7 +25,7 @@ public class Exercise {
     //700 -1000(addd all numbers can be divided by 3)
 
     int num = 0;
-    for (int i = 1 ; i <= 1001 ; i++) {
+    for (int i = 1 ; i <= 1000 ; i++) {
       if (i < 300 ) {
         if ( i % 2 == 0) {
           num += i ;
@@ -41,15 +41,5 @@ public class Exercise {
       }      
     }
     System.out.println(num);
-
-
-    int numbers = 0 ;
-    for (int i = 1 ; i <= 1001 ; i++) {
-      if (i < 300 && (i % 2 == 0)) {
-        num += i;
-      }
-    }
-    System.out.println(numbers);
-
   }
 }
