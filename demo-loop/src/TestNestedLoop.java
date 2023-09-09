@@ -38,7 +38,7 @@ public class TestNestedLoop {
     for (int i = 1 ; i < 11 ; i++) {
       for (int j = 11 ; j < 21 ; j++) {
         //要留意點樣可以提早離開
-        //if ( i % 2 ==0 && j % 2 ==0 && j < 15) {// 放前面會行先, 會check 條件係咪可以, 唔可以放會停唔再做
+        //if ( i % 2 ==0 && j % 2 ==0 && j < 15) {// 放前面(左行先)會行先, 會check 條件係咪可以, 唔可以放會停唔再做
         if (j < 15 &&  i % 2 ==0 && j % 2 ==0 ) {// 會繼續試j =16,17,18,19...所以比較approach 1 慢
           System.out.println("i="+i+" j="+j);
         } 
@@ -55,3 +55,6 @@ public class TestNestedLoop {
 // i = 0, j = 1, print i => 0
 //...
 // i = 0, j = 4, print i => 0
+
+
+// continuse -> skip 去行下一行
