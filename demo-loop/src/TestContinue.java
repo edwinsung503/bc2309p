@@ -6,7 +6,7 @@ public class TestContinue {
       if (i >=2) {
         continue;// go to i++
       }
-      //System.out.println("i="+i); // i=0,i=1
+      System.out.println("i="+i); // i=0,i=1
     }
 
     // 2,4,6,8,10 - > continue
