@@ -17,7 +17,7 @@ public class DemoConversion {
       //char -> int 
       char c = 'a' ; //ascii code
       int w = c ; // upcast
-      System.out.println(w) ;// 97 @ ascii code
+      System.out.println(w) ;// 97 @ ascii code 
 
       //char c2 = w; // int(21憶) 個可能性唔可以放入char(可能出現精度損失)
       //int -> char , error
