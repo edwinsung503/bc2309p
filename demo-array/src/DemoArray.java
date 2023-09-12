@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class DemoArray {
   public static void main(String[]args) throws Exception {
     int i1 = 100;
@@ -69,8 +71,86 @@ public class DemoArray {
     //arr5[4] = 30001; // run-time error // run 果時先知的error
 
     arr5 = new int [] {1,2,3,4,5};//舊的arr5 已經消失左//因為declare 左就唔使再declare
-
     
+    //1,4,3,2,5
+    //Swap elements of index 1 and index 3
+    int temp = 0;
+    for (int i =0; i < arr5.length; i++) {
+      if (i == 1) {
+        //Swap 
+        temp = arr5[i]; // 2
+        arr5[i] = arr5[i+2]; //2 
+        arr5[i+2] = temp;//4
+      }
+    }
+    //System.out.println(arr5);//I@372f7a8d -> object reference (地址)
+    System.out.println(Arrays.toString(arr5));//[1,4,3,2,5]
+
+
+    //arr5: Swap min and max value
+    //1,4,3,2,5 - > 5,4,3,2,1
+    //光速call temp 的地址講佢係什麼
+    int max = -1;
+    int min= 10000;
+    int maxIdx = -1;
+    int minIdx= -1;
+    int temp1= -1;
+    for (int i = 0; i < arr5.length; i++) {
+      if (arr5[i] > max ){
+        max = arr5[i];
+        maxIdx = i;
+      } 
+      if (arr5[i] < min) {
+        min = arr5[i];
+        minIdx = i;
+      }
+    }
+    temp1 = arr5[minIdx];
+    arr5[minIdx] = arr5[maxIdx] ;
+    arr5[maxIdx] = temp1;
+    System.out.println(Arrays.toString(arr5));//5,4,3,2,1
+
+    //move max value to the tail of the array
+    //[4,3,2,1,5]
+    //step 1: index of max value;//max value is 5, //5,4,3,2,1
+    
+    int max1 = -1;
+    int min1 = 10000;
+    int max1Idx = -1;
+    int min1Idx = -1;
+    int temp2 =0;
+    for (int i = 0; i <arr5.length; i++) {
+      if (arr5[i] > max) {
+        max1 = arr5[i];
+        max1Idx = i;//0
+      } 
+    } 
+    //step 2; loop -> swap. when to start? index = 0
+    for (int i = 0; i < arr5.length -1; i++) {//- 1 係因為唔使換到最後已換完。
+      if (i >= max1Idx) {
+        temp2 = arr5[i];
+        arr5[i] = arr5[i+1];
+        arr5[i+1] = temp2;
+      }
+    }
+    System.out.println(Arrays.toString(arr5));//4,3,2,1,5
+
+    //reverse the string
+    String str = "hello";
+    //hello - > olleh
+    char [] characters = str.toCharArray();
+    char temp3 = ' ';
+    for (int i = 0; i < str.length() / 2; i++) {// i =0,2
+      //i = 0, swap 'h' and 'o'
+      //i = 2, swap 'e' and 'l'
+      temp3 = characters[i];
+      characters[i] = characters[str.length() -1 - i];//0th, 5-1-0 =4th 
+      characters[str.length() - 1 - i] = temp3;
+      
+    }
+    str = String.valueOf(characters);
+    System.out.println(str);//olleh
+
   }
   
 }

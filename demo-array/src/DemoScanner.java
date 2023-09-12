@@ -7,6 +7,5 @@ public class DemoScanner {
     int input = scanner.nextInt();
     System.out.println("The input: "+input);
   }
-  
-  
 }
+
