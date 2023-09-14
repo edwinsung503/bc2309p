@@ -54,7 +54,7 @@ public class demowrapper {
     System.out.println(i16.equals(i17)); //< - i16 == i17 - > true
     System.out.println(i16 == 8); //java compare Integer(i16) and int (8), Integer i16 will
 
-
+    
 
   }
 }
