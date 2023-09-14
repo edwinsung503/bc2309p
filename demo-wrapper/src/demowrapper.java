@@ -50,7 +50,7 @@ public class demowrapper {
     System.out.println(i16.compareTo(8));//- > 0
     System.out.println(i16.compareTo(9));//-1, less than 9
     System.out.println(i16.compareTo(7));//1, more than 7
-    System.out.println(i16 > 7);//ture, 無咁好
+    System.out.println(i16 > 7);//true, 無咁好
     System.out.println(i16.equals(i17)); //< - i16 == i17 - > true
     System.out.println(i16 == 8); //java compare Integer(i16) and int (8), Integer i16 will
 

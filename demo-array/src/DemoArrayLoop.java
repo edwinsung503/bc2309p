@@ -122,7 +122,7 @@ public class DemoArrayLoop {
     int temp = nums2[minIndex];//temp = nums[2]
     nums2[minIndex] = nums2[nums2.length-1];//nums[2] = nums[4] -> 將最後的數字改為頂替minindex 果個
     nums2[nums2.length-1] = temp; // nums[4] = temp = nums[2] = -1000 -> 放minindex 個數字去最後位置
-    System.out.println(Arrays.toString(nums2));
+    System.out.println(Arrays.toString(nums2));//[1, 101, 4, -3, -1000]
       
 
 
