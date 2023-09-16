@@ -34,11 +34,16 @@ public class TestLoop {
       System.out.println(i+": "+x);//print 7 times
     }
     System.out.println(x); //256
-
-
+    //Quiz idea - > 似係其他primitives 
+    //for (byte b = 0; b < 128 ; b ++) {
+      //System.out.println(b); //0....127
+      //when b = 127 -> b++ -> -128 -> -128 < 128 ?? - > infinite loop
+    //}
+    //Quiz idea
+    for (byte b = 0; b >=0; b++) {
+      System.out.println(b); //0....127
+      //when b = 127 -> b++ -> -128 -> -128 >= 0 - > will stop
+    }
     
-    
-
-
   }
 }

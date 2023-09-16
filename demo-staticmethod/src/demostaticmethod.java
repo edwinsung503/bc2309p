@@ -9,7 +9,7 @@ public class demostaticmethod {
     }
     x = 10;
     for (int i=0; i < 10; i++) {
-      x *=2;
+      x *= 2;
     }
     int result = add(2,3);
     System.out.println(result);//5
@@ -21,8 +21,6 @@ public class demostaticmethod {
     System.out.println(result);//130
     short r = sum(5,8);
     System.out.println(r);//26
-
-
   }
   //1st int - >  return type
   //add - > method name
