@@ -32,6 +32,8 @@ public class Square {
       }
   return max1;
   }
+
+  
   public static void main(String[]args){
     System.out.println(Square.area(2));//4
     System.out.println(Square.area3(4));//16
@@ -46,6 +48,8 @@ public class Square {
     }
     int [] Integers = new int [] {1,2,3,4,5} ;
     System.out.println(Square.max(Integers));
+
+    
 
   }
 }
