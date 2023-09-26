@@ -37,7 +37,7 @@ public class Book {//A template to describe the objects
     
   }
   public String toString (){
-    return "author= "+this.author//
+    return "author= "+this.author//this.author = author
      + ", noOfpages= " +this.noOfPages;
   }
 }
