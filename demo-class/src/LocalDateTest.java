@@ -30,7 +30,9 @@ public class LocalDateTest {
     System.out.println(date2.compareTo(date)==1);//True
     System.out.println(LocalDate.now());//print today
 
-    System.out.println(LocalDate.parse("2022-10-01"));
+    LocalDate date4 = LocalDate.parse("2022-10-01");
+    System.out.println(date4);//same as date4.toString(), 會自動轉toString
+    System.out.println(date4.getYear());
 
   }
   
