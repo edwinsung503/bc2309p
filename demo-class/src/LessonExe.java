@@ -17,7 +17,7 @@ public class LessonExe {
   }
 
   public static void main(String[] args) {
-    LessonExe phone = new Phone() ;
+    //LessonExe phone = new Phone() ;
 
   }
 }
