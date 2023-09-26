@@ -11,7 +11,7 @@ public class LessonExe {
 
   public String getColor(){
     if (this.color == 'B'){
-      return 'Blue';
+      return "Blue";
     }
     return "Black";
   }
@@ -20,6 +20,4 @@ public class LessonExe {
     LessonExe phone = new Phone() ;
 
   }
-
-
 }

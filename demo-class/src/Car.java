@@ -53,24 +53,15 @@ public class Car {
     System.out.println(c2.getMake()); //null因為無set 
     c2.setMake("abc");
     System.out.println(c2.getMake());//abc
-<<<<<<< HEAD
-=======
 
     Car c3 = new Car("cba","ijk","2023");
     System.out.println(c3.getMake());//cba
 
     Car c4 = new Car ("cba2","Totya");
     System.out.println(c4.getMake());//cba2
-
-    
-
-
 
   }
->>>>>>> 5fe8aef82f6fb66d78f45468272d689014b6facd
+}
 
-    Car c3 = new Car("cba","ijk","2023");
-    System.out.println(c3.getMake());//cba
 
-    Car c4 = new Car ("cba2","Totya");
-    System.out.println(c4.getMake());//cba2
+    

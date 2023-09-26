@@ -1,11 +1,8 @@
 public class StringTest {
   public static void main(String[] args) {
     //Approach 1
-<<<<<<< HEAD
     String str = "hello" ;// str is a object reference _> String 都係一個class
-=======
-    String str = "hello" ;// str is ab object reference _> String 都係一個class
->>>>>>> 5fe8aef82f6fb66d78f45468272d689014b6facd
+
     //"hello" is an String obejct in heap
     //wrapper class 同string 唔使用 "new " 都可以create an object
 
@@ -29,8 +26,4 @@ public class StringTest {
 
 
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5fe8aef82f6fb66d78f45468272d689014b6facd
