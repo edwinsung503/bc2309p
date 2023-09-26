@@ -7,4 +7,8 @@ public class Heap {
     
   }
   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5fe8aef82f6fb66d78f45468272d689014b6facd
