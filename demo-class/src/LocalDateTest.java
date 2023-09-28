@@ -19,6 +19,7 @@ public class LocalDateTest {
     System.out.println(date.getMonth());//DECEMBER
     System.out.println(date.getDayOfWeek());//SUNDAY
     
+    
 
     LocalDate date2= LocalDate.of(2024,2,27);
     //System.out.println(date2.isAfter(date));//True

@@ -1,4 +1,4 @@
-public class StringBuilder {
+public class StringBuilders {
   public static void main(String[] args) {
     StringBuilder s = new StringBuilder();// new StringBuilder - > constructor
     //人地做好了, 我可以用
