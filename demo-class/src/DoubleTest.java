@@ -30,7 +30,7 @@ public class DoubleTest {
     BigDecimal result2 = bd4.divide(bd5);//2.0
     BigDecimal result3 = bd4.add(bd5);//0.6
 
-    System.out.println(result1.doubleValue());
+    System.out.println(result1.doubleValue());//returns the value of a number object as a double data type
     System.out.println(result2.doubleValue());
     System.out.println(result3.doubleValue());
 

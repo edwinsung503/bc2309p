@@ -46,3 +46,5 @@ public class Triangle {
     //Case 1 , 用一個setter 
     //Case 2 , 唔用setter
     //Case 3 empty constructor
+  }
+}
