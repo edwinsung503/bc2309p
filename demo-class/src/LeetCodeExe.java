@@ -1,30 +1,19 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.Arrays; 
 
 public class LeetCodeExe {
-  public static void main(String[] args) {
-    int [] nums = new int [] {1,2,3,6,6,6};
-    int max = 0;
-    for (int i=0; i<nums.length; i++) {
-      if (nums[i]> max){
-        max = nums[i];
+	public static void main(String[] args) {
+		String[] array = {"cat", "dog", "cat", "bird", "cat"};
+    int count=0;
+    //int count = 0; // the variable to store the count
+    String target = array[0];
+    for (int i = 0; i < array.length; i++) { // loop through the array
+      for (int j =0 ; j< array.length -1; j++){
+        if (!target.equals(array[j])){
+          count++;
+          target = array[j];
+        }
       }
     }
-    System.out.println(max);
-    //int n = nums.length * 2;
-    int [] countArray = new int [max+1];
-    int maxIndex = 0;
-    for (int i =0; i<nums.length ;i++) {
-      countArray[nums[i]] +=1;
-    }
-
-    System.out.println(Arrays.toString(countArray));
-    for (int i = 0; i< countArray.length;i++) {
-      while (countArray[i]==3){
-        System.out.println(i);
-        break;
-      }
-    }
-
+    System.out.println(count);//
   }
 }

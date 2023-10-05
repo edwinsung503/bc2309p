@@ -27,7 +27,7 @@ public class Square {
     System.out.println("hello, this is static abc method");
   }
   //method signature cannot be duplicated
-  //method signature = method name + parameters
+  //method signature = method name + parameters 
   public static String abc(String s,String s2) {
     System.out.println("hello, this is static abc method"+ s + s2 );
     return s + s2;
