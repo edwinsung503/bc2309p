@@ -2,7 +2,7 @@ public class demowrapper {
   public static void main (String[]args) {
     //Primitives - bytes, short, int, long ,float, double, char, boolean
     //String
-    //Wrapper Class -Byte, Short, INteger, Long, Float, Double, Character, Boolean
+    //Wrapper Class -Byte, Short, Integer, Long, Float, Double, Character, Boolean
 
     //double  <> Double (父子關係)
     //float - > Double (唔得, 無關係)

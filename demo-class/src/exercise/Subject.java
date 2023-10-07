@@ -27,6 +27,8 @@ public class Subject {
     Exam exam = new Exam(s1);
     exam.add(s2);
     exam.add(s3);
+    double averageScore = exam.average();
+    System.out.println("averageScore=" + averageScore);
     
 
     //private static variable

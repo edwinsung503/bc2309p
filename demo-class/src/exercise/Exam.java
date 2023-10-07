@@ -7,11 +7,10 @@ package exercise;
 //- instance method can call static variable
 // - can static method call insatance variable ?? why?? 因為無object idea , 唔可以this
 // - instance medthod can call instance variable (getter , setter)
-// - what is meaning of "no setter"? - > 
-//- what is private?
+// - what is meaning of "no setter"? - > 後期唔可以改parameter
+//- what is private? 唔可以係出面用.class method 去call
 
 public class Exam {
-  //three subject
 
   Subject [] subjects;
   private static int size = 0 ; // 唔可以出面.size
@@ -30,20 +29,37 @@ public class Exam {
   }
   // instance method 
   public void add(Subject subject) {
-    double sum = 0;
     for (int i =0; i < this.subjects.length; i++) {
       if (this.subjects[i] !=null) {
         this.subjects[i] = subject;
         size++ ; // instance metehod can change the static variable
       }
     }
+    System.out.println("end of add()");
   }
-  //average
-  
+
+  public int size() {
+    int count = 0;
+    for (int i = 0; i < this.subjects.length; i++) {
+      if (this.subjects[i] != null)
+        count++;
+    }
+    return count;
+  }
+
+  public double average() {
+    double sum = 0;
+    for (int i = 0; i < this.subjects.length; i++) {
+      if (this.subjects[i] != null)
+        sum += this.subjects[i].getScore();
+    }
+    return sum / this.size(); // int / int -> int, double / int -> double
+  }
 
   public static int getSize() {
     return size;
-  } 
+  }
+
 }
 
 ///用static variable to replace the function of size()
