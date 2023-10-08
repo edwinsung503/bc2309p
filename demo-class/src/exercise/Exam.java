@@ -11,12 +11,18 @@ package exercise;
 //- what is private? 唔可以係出面用.class method 去call
 
 public class Exam {
-
-  Subject [] subjects;
+  //Access Modifier: private, public, protected, package-private (default)
+  //public -> class, attribute, method , constructor
+  //private - > attribute, method , constructor
+  //producted -> attribuet, method, constructor
+  //package-private -> class, attribute, method, constructor
+  private Subject [] subjects;
   private static int size = 0 ; // 唔可以出面.size
 
   //static final String x = "hello";// complie time 已經要付上一個值  (以後唔想有人改寫佢), 唔可以再改寫的資料
-  static final int noOfdayOfweek = 7;//唔可以重新assign 新value 入去
+  private static final int noOfdayOfweek = 7;//唔可以重新assign 新value 入去
+  //Camel Case
+
   //setter
   //getter
   
@@ -26,6 +32,23 @@ public class Exam {
     this.subjects[0] = subject;
     size++;// contructor can change the static variable
 
+  }
+
+  public static int getNoOfDayOfAWeek (){
+    return noOfdayOfweek;//跟class 的一舊野 
+  }
+  //remove a subject
+  public boolean delete(Subject subject) {
+    for (int i=0; i<this.subjects.length;i++){
+      if (this.subjects[i] !=null //
+      && subjects !=null //
+      && this.subjects[i].getDescription().equals(subject.getDescription())) {
+        this.subjects[i] = null;
+        size --;// delete a size from subject
+        return true;
+      }
+    }
+    return false;
   }
   // instance method 
   public void add(Subject subject) {
@@ -59,7 +82,11 @@ public class Exam {
   public static int getSize() {
     return size;
   }
-
+  public static void main(String[] args) {
+    Subject subject = new Subject("ABC",89);
+    System.out.println(subject.getGrade()); 
+    System.out.println("Static method, Exam.getNoOfDayOfAWeek()="+Exam.getNoOfDayOfAWeek());;
+  }
 }
 
 ///用static variable to replace the function of size()
