@@ -25,6 +25,5 @@ public class Employee {
     System.out.println("Start");
     Employee employee = new Employee("John");
     System.out.println("End");
-    System.out.println(Employee.static(name));
   }
 }
