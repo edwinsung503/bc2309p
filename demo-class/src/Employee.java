@@ -11,16 +11,16 @@ public class Employee {
     System.out.println("Step2: Start Block");
     
   }
-  public static String genX(){
+  public static String genX(){//static method
     System.out.println("Step1: Start genX()");
     return "1234";
   }
-  {//initialization block (主要放係main 做, 較少人用, 主要用constructor)
+  {//initialization block (主要放係main 做, 較少人用, 主要放入每個constructor到)
     System.out.println("Step 3: this is initialization block when you new a object");//step1
     name = "abc";
   }
 
-  public Employee(String name) {
+  public Employee(String name) {//Constructor
     System.out.println("Step 4: this is a constructor");//step2
     this.name= name;
   }
@@ -34,3 +34,8 @@ public class Employee {
     System.out.println("End");
   }
 }
+
+//Step 1 static method -> before main 
+//Step 2 static block -> before main 
+//Step 3 initialization block
+//Step 4 constructor

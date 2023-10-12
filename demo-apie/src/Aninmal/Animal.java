@@ -26,7 +26,7 @@ public class Animal {//abstract-> 抽象
   }
 
   public Animal() {}
-
+  //All arg constructor
   public Animal (double height, double weight){
     this.height =height;
     this.weight = weight;

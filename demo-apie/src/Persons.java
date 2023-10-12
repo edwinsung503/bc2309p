@@ -9,13 +9,13 @@ public class Persons {//parent class
   public static String x ="hello";
 
 
-  public static int getY() {
+  public static int getY() {//static method
     return 10;
   }
 
   //考慮可以擴展
   //All agruement constructor
-  public Persons(String name, int age) {
+  public Persons(String name, int age) {//constructor
     this.name = name;
     this.age =age;
   }
@@ -23,23 +23,23 @@ public class Persons {//parent class
   //empty constructor
   public Persons () {}
 
-  public void setName(String name){
+  public void setName(String name){//setter
     this.name = name ;
   }
 
-  public String getName(){
+  public String getName(){//getter
     return this.name;
   }
 
-  public void setAge(int age) {
+  public void setAge(int age) {//setter
     this.age = age;
   }
 
-  public int getAge() {
+  public int getAge() {//getter
     return this.age;
   }
 
-  public String toString() {
+  public String toString() {//toString - 
     return "name= "+this.name //
     + "age= "+this.age;
   }
