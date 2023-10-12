@@ -24,7 +24,7 @@ public class Animal {
   }
 
   public Animal() {}
-
+  //All arg constructor
   public Animal (double height, double weight){
     this.height =height;
     this.weight = weight;

@@ -15,7 +15,7 @@ public class Dog extends Animal{
   public String toString () {
     return "Dog(name= "+this.name +", Animal(" +super.toString()+"))";//>> call (Parent object)Animal String toString
   }
-  //必須要寫因為有一日佢會有自己的attribute
+  //必須要寫(String toString)因為有一日佢會有自己的attribute
   //public String toString() {
   //  return "weight+ "+super.getWeight() + " height= "+super.getHeight();
   //}
@@ -23,7 +23,7 @@ public class Dog extends Animal{
   public static void main(String[] args) {
     Dog dog = new Dog(12.0d,13.0d,"Donki");
     //how to print dog
-    System.out.println(dog);
+    System.out.println(dog);//因為寫左toString, 唔使再寫dog.toString
+    
   }
-  
 }
