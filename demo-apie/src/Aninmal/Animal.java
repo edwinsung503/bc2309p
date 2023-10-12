@@ -1,6 +1,8 @@
 package Aninmal;
 
-public class Animal {
+public class Animal {//abstract-> 抽象
+  //abstract class vs normal class
+
   
   private double weight ;
 
@@ -11,7 +13,7 @@ public class Animal {
     this.height = height;
   } 
 
-  public void setWeight(double 田eight){
+  public void setWeight(double height){
     this.weight = weight;
   } 
 
@@ -34,5 +36,4 @@ public class Animal {
   public String toString() {
     return "weight= "+this.weight +"height= "+this.height+"name= "; 
   }
-
 }
