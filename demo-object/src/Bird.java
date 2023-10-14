@@ -1,24 +1,81 @@
+import java.util.Objects;
+
 public class Bird {//任何class 都有implicitly extends Object.class < 無寫但本身都有依個Object class
   
 
   private String name;
 
-  public final String color = "Yellow";
+  private int age;
+
+  public final static String color = "Yellow";//無得再改, 但隻color 就永遠係黃色
   //final 無static -> instance variable 不可以被修改- 因為belong to Bird 
-    //如果有static 就可以改, 唔belong to anyone- 跟share 的attribute
+    //如果有static 就可以改, 唔belong to anyone- 跟share 的attribute -> 唔可以再用setter/getter 去改
     //**Static 同唔用static 的分別 */
-    
+
+  //Constructor;
+  //有名俾落去的constructor -> 控制control 的人點控制隻bird 形
+  public Bird (String name,String color){
+    this.name = name;
+    //this.color = color;//因為final instance variable 不可以被修改,但仲有color
+  }
+  public Bird () {//name default value null; color : yellow
+
+  }
+
+  public static Bird valueOf(String name){//想Bird.valueOf- > static method -> class.methodname
+    return new Bird(name,name); //** */
+  }
+
+  public void setName(String name){//new Bird ("John")
+    this.name =name;
+  }
+
+  public void setAge(int age){//new Bird ("John")
+    this.age =age;
+  }
+
+  //setter color ;> 用家可以用以個去改color
+  public String getName(){
+    return this.name;
+  }
+
+  public int getAge(){
+    return this.age;
+  }
   public String getColor(){
     return this.color;
   }
+  @Override//child override parent 的野
+  public boolean equals(Object obj) {//b1.equals (b2) -> false -> true
+    if (this == obj) {//b1.equal = this,== object reference
+      return true;  
+    }
+    if (!(obj instanceof Bird)) {
+      return false;
+    }
+
+    //肯定左obj 係bird
+    Bird bird = (Bird) obj;//downcase -> getName
+    //return bird.getName().equals(this.name);//equals 就有return , Check String by equals(),"john"
+    return Objects.equals(bird.getName(), this.name) && Objects.equals(bird.getAge(), this.age);
+    //citizen 用HKID 去用equal 分别2個人
+  }
+  @Override
+  public int hashCode(){
+    return Objects.hash(this.name,this.age);
+  }
+  //test 下發生什麼事
+
+
+
   //final field Bird.color cannot be assign
   //public void setColor(String color) {
     //this.color = color;
   //}
 
   @Override//Check Parent -> Object
-  public String toString() {
-    return "Bird(name= "+this.name+")";
+  public String toString() {  
+    return "Bird(name= "+this.name+", color="+this.color+")";
   }
   //Final method cannot be Overriden
   public final void fly(){
@@ -49,15 +106,54 @@ public class Bird {//任何class 都有implicitly extends Object.class < 無寫�
 
     //bird 同object 係Parent 可以up down(implicitly)
     //Object 係任何人的父母
+
+    //萬一下面係什麼type /型態所以防止個出什機先做
+    //對complie time vs runtime 理解
+    //complie time 係check 文法
+    //runtime 係check 你個例子係咪對應到個porgram
+
     if (object instanceof Bird ){ //if true -> 先行bird
       //downcase from Object.class to Bird.class
+      //object 係最高, 只可以downcase
       Bird b = (Bird) object;
       b.fly();//用bird declare 的object所以可以fly
+    } else if (object instanceof String) {//declare 返個object 所以寫返downcase from object
+      String c = (String) object;
+      System.out.println(c.length());
+    } else if (object instanceof Integer) {
+      Integer i = (Integer) object;
+      System.out.println(i.intValue());
+    } else if (object instanceof Double ) {
+      Double d = (Double) object;
+      System.out.println(d.doubleValue());
     }
     //Exe , 抽走if condition
     //try 放個integer 入去, 睇下會點, class not matching
     //object = 100;//Integer.class
 
+    //可以唔開放CONSTRUCTOR
+    Integer i1 = Integer.valueOf("100");//100
+    Integer i2 = new Integer("100");//100
+
+    Bird b1 = new Bird("John", color);
+    Bird b2 = Bird.valueOf("John");
+
+    String s = String.valueOf(100);
+    System.out.println(s.charAt(2));
+
+    System.out.println(b1.equals(b2));//false -> change to true
+    //因為check object reference , new 左2次,所以係ram 唔同位
+    //row 101 /102 想係同一個bird , 唔想係同一個就要寫D 野分開佢
+
+    System.out.println(b1.hashCode());//-> 71751670
+    System.out.println(b2.hashCode());//-> 71751670 hashcode 去認係咪同一個object
+    //令到個hashcode 一樣
+
+    b1.setAge(20);
+    b2.setAge(12);
+    System.out.println(b1.equals(b2));
+    System.out.println(b1.hashCode());//71751690
+    System.out.println(b2.hashCode());//71751682
 
 
 
