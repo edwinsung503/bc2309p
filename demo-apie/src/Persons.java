@@ -38,7 +38,7 @@ public class Persons {//parent class
   public int getAge() {//getter
     return this.age;
   }
-
+  @Override//Overriding the toString method in Objcet.class// Override parent class (object) toString Method
   public String toString() {//toString - 
     return "name= "+this.name //
     + "age= "+this.age;
