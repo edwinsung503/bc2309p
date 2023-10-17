@@ -46,27 +46,45 @@ public class Bird {//任何class 都有implicitly extends Object.class < 無寫�
     return this.color;
   }
   @Override//child override parent 的野
+  //Check 2個object (B1 & B2) 係same content
   public boolean equals(Object obj) {//b1.equals (b2) -> false -> true
     if (this == obj) {//b1.equal = this,== object reference
       return true;  
+    //First, it checks if the object passed as a parameter is the same as the current object, 
+    //using the == operator. This compares the references of the objects, not their content. 
+    //If they are the same, then the method returns true, since they are equal by definition.
     }
     if (!(obj instanceof Bird)) {
       return false;
     }
 
+    //Second, it checks if the object passed as a parameter is an instance of the Bird class, 
+    //using the instanceof operator. This ensures that the objects are of the same type and can be compared. 
+    //If the object is not an instance of Bird, then the method returns false, since they are not equal by type.
+
     //肯定左obj 係bird
     Bird bird = (Bird) obj;//downcase -> getName
+    //Third, it casts the object passed as a parameter to a Bird object, using the (Bird) operator. 
+    //This allows accessing the fields and methods of the Bird class from the object. 
+    
     //return bird.getName().equals(this.name);//equals 就有return , Check String by equals(),"john"
     return Objects.equals(bird.getName(), this.name) && Objects.equals(bird.getAge(), this.age);
     //citizen 用HKID 去用equal 分别2個人
+    //Then, it compares the fields and methods of the Bird object with those of the current object, 
+    //using the equals method or other appropriate operators. If they are all equal, 
+    //then the method returns true, since they are equal by content. Otherwise, it returns false.
+
   }
   @Override
   public int hashCode(){
     return Objects.hash(this.name,this.age);
+
+    //The hashCode method is used to return a hash code value for an object, 
+    //which is an integer that represents the object's identity.
+    //  If two objects are equal according to the equals method, 
+    //then calling the hashCode method on each of them must produce the same integer result.
   }
   //test 下發生什麼事
-
-
 
   //final field Bird.color cannot be assign
   //public void setColor(String color) {
@@ -123,7 +141,7 @@ public class Bird {//任何class 都有implicitly extends Object.class < 無寫�
     } else if (object instanceof Integer) {
       Integer i = (Integer) object;
       System.out.println(i.intValue());
-    } else if (object instanceof Double ) {
+    } else if (object instanceof Double ) { 
       Double d = (Double) object;
       System.out.println(d.doubleValue());
     }

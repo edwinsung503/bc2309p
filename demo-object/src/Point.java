@@ -21,7 +21,7 @@ public class Point {
   public int getY () {
     return this.y;
   }
-
+  //Constructor
   public Point(int x, int y){
     this.x = x;
     this.y =y;
