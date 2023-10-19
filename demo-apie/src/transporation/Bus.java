@@ -4,7 +4,7 @@ public class Bus implements Moveable{//implements 理行依個合約
 
   private int speed;
 
-  private Location location;//(position / location)
+  private Location location;//(position / location) -> private int location;
 
   public void setSpeed (int speed){
     this.speed = speed;

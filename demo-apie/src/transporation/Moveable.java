@@ -2,20 +2,22 @@ package transporation;
 
 
 public interface Moveable {//interface (合約) -> Contract(條款及框)
+  //before Java 8, 100% abstraction
+
+
   //無body
-  //implicitly "public final static" -> 要俾Value
+  //1.implicitly "public final static" -> 要俾Value(constant)
   String name = "Car";//public final static -> no need  要set value
-  //constant
   
 
   //interface 只要放method signature
-  //all methods in interface are implicitly "public abstract"(by default)
+  //2. All methods in interface are implicitly "public abstract"(by default)
   Moveable move();//method signature -> move() , by default -> public abstract < - 唔使寫
   //因為佢有run 個合約, 所以可以借身去用
 
   void accelerate();
 
-  //after java 8 
+  //after java 8 - 2014
   //implicitly public -> 繼承佢都會有依個method
   default void pritnWinner(String name) {
     System.out.println(name+"is Winner");
