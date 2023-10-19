@@ -4,39 +4,36 @@ public class Taxi implements Moveable{
   
   private int speed;
 
-  private String name;
-
   private Location location;
 
   public void setSpeed(int speed){
     this.speed = speed;
   }
-  public void setName(String name){
-    this.name = name;
-  }
+
   public int getSpeed(){
     return this.speed;
   }
-  public String getName(){
-    return this.name;
-  }
+
 
   public Location getLocation(){
     return this.location ;
   }
+
+  //Constructor
   public Taxi (int speed){
     this.speed = speed;
-    this.location =new Location();
+    this.location =new Location();//set New Location
     
   }
 
   @Override
   public Taxi move(){
+    //
     int newX = this.location.getX() + this.speed / 10;
     this.location.setX(newX);
     return this;
   }
-
+  //taxi 移動速度令個location 改變
   @Override
   public void accelerate(){
     this.speed +=30;
