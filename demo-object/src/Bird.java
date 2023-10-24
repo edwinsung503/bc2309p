@@ -145,6 +145,8 @@ public class Bird {//任何class 都有implicitly extends Object.class < 無寫�
       Double d = (Double) object;
       System.out.println(d.doubleValue());
     }
+
+    object = new int [5][2];
     //Exe , 抽走if condition
     //try 放個integer 入去, 睇下會點, class not matching
     //object = 100;//Integer.class

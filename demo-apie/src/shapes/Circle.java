@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 
 public class Circle extends Shape{
   
-  private double radius ;
+  private double radius ;//<- Encapsulation radius 因為private 左 
 
   //double = * ?
   //getter, setter
