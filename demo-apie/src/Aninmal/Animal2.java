@@ -15,7 +15,7 @@ public abstract class Animal2 {//< new 唔到依個class 的object,令件事少D
     this.weight = weight;
   }
 
-  public abstract void sound();//abstract class 可declar 唔係abstract class
+  public abstract void sound();//abstract class 可declare 唔係abstract class
   //因為animal2係abstract class , 所以可以寫abstract implenmetation
   //如果唔係abstract class 就唔可以寫abstract
 
