@@ -6,23 +6,18 @@ public class StringBox {
 
   //constructor
   public StringBox(String s){
-    arr = new char[s.length()];
+    this.arr = new char[s.length()];
     for (int i=0; i<s.length();i++) {
-      arr[i] = s.charAt(i);
+      this.arr[i] = s.charAt(i);
     }
   }
-
-  public int length(char [] arr){
-    int count = 0;
-    for (int i =0; i< arr.length;i++){
-      count += i;
-    }
-    return count;
+  //getter
+  public int length(){
+    return this.arr.length;  
   }
-
-  public char charAt(char [] arr){
-   char word = ' '; 
-   for (int i =0; i< arr.length() )
+  //getter
+  public char charAt(int index){
+   return this.arr[index];
   } 
 
   public static void main(String[] args) {
