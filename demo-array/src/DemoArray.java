@@ -79,7 +79,7 @@ public class DemoArray {
       if (i == 1) {
         //Swap 
         temp = arr5[i]; // 2
-        arr5[i] = arr5[i+2]; //2 
+        arr5[i] = arr5[i  ]; //2 
         arr5[i+2] = temp;//4
       }
     }

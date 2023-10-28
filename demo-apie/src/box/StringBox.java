@@ -46,6 +46,8 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
     //arrays (object reference 指住 char[] "samplesample")
     //現在可以將this.arr 更改新的地址, 用arrays的 new object 指住新的charArray-> char[] "samplesample" -> 
     return this;// 要改返stringbox 的內容(我要原本的內容  )//NEED CHANGE
+
+    //當無一個object reference 指住一個object, 個object 會自動消失  
   }
 
   //getter
@@ -78,8 +80,10 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
     StringBox stringBox = new StringBox("sample");
     System.out.println(stringBox.length());//print 6
     System.out.println(stringBox.charAt(2));//print m
-    System.out.println(stringBox.subString(1,3).toString());//am
+    System.out.println(stringBox.subString(1,3).toString());//am-> 
+    //find the copy of the stringbox but substring the stringbox -> new a stringbox 
     System.out.println(stringBox.append("sample"));//samplesample
+    //想改寫個stringbox -> 要起一個新的char [] (array)
 
     //System.out.println(StringBox.valueOf("hello world").subString(2, 5).append("!!!").toString());
     //hello world 未save 低- where is hello world , how to save 
