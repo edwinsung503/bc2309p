@@ -45,6 +45,7 @@ public class Superman extends Human implements Superpower, Life{
     //this object reference(s)is pointing to an Superman Object.
 
     Human h = new Superman("Mary"); 
+    
     //Human h= new Human()<- 因為abstract class 唔可以new
     //h is an Object reference
     //this object reference(h)is pointing to an Superman Object.

@@ -37,7 +37,7 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
     }
 
     for (int i=0; i<  s.length();i++) {
-      arrays[pos] = s.charAt(i);
+      arrays[++pos] = s.charAt(i);
     }
     this.arr = arrays; 
     //要改原裝的char Array
