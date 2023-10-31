@@ -27,13 +27,16 @@ public enum Direction {
   //assign a int value to the enum
   public boolean isOpposite (Direction direction) {
     return this.val * -1 == direction.getVal();
-    //-2 * 1 == 2 ??
+    //This code means that you are defining a method to check if two directions are opposite. 
+    //The method takes another direction as a parameter and returns a boolean value. 
+    //It compares the result of the previous step with the value of the other direction. I
   } 
   
 
   public static void main(String[] args) {
+    //
     System.out.println(Direction.SOUTH.isOpposite(Direction.NORTH));//true
-    System.out.println(Direction.SOUTH.isOpposite(Direction.SOUTH));//false
+    //System.out.println(Direction.SOUTH.isOpposite(Direction.SOUTH));//false
     
   }
 

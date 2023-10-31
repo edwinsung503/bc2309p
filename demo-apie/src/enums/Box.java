@@ -60,7 +60,7 @@ public class Box {
     }
 
     //valueOf() -> //Class.valueOf()
-    System.out.println(Color.valueOf("WHITE"));
+    System.out.println(Color.valueOf("WHITE"));//WHITE
 
     System.out.println(Box.SIZE);
 
