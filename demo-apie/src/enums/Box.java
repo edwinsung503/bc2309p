@@ -1,5 +1,5 @@
 package enums;
-
+//enum + switch
 public class Box {
 
   private Color color ;

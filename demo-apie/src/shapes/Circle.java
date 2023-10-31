@@ -1,13 +1,15 @@
 package shapes;
 
 import java.util.Objects;
-
+import enums.Color;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Circle extends Shape{
   
   private double radius ;//<- Encapsulation radius 因為private 左 
+
+  
 
   //double = * ?
   //getter, setter
@@ -22,8 +24,14 @@ public class Circle extends Shape{
     return this.radius ;
   }
 
-  public Circle (double radius) {
+  public Circle (double radius, Color color) {
+    super(color);
     this.radius = radius;
+    
+  }
+
+  public double getDiameter(){
+    return this.radius * 2; //封裝: 佢唔知計法，只知ANS
   }
 
   @Override
@@ -73,12 +81,17 @@ public class Circle extends Shape{
   }
 
   public static void main(String[] args) {
-    Circle circle = new Circle(3.5);
+    Circle circle = new Circle(3.5,Color.BLACK);
     //System.out.println("cicle area=" +circle.area());//38.48451000647496
     //System.out.println(Math.round(circle.area()* 100)/ 100.0);
     //System.out.println(BigDecimal.valueOf(circle.area()).setScale(2, RoundingMode.HALF_UP));;
     System.out.println("cicle area=" +circle.area(RoundingMode.HALF_UP,2));//38.48451000647496
 
+    Shape shape = new Circle(4, Color.WHITE);// shape 係收窄左範園- Object -> Shape
+    System.out.println(shape.getClass());//->class shapes.Circle -> class 都係Circle
+    //instanceof 可以拎到入面個class name
+    System.out.println(shape.area(RoundingMode.FLOOR,2));//4 * 4 * 3.14....
+    //-> refer 到Circle 入面的method
     
   }
 }
