@@ -7,6 +7,7 @@ import enums.Color;
 //有什麼class 唔可以俾繼承? -> Final 左的class , eg. String/integer 唔可以extend 
 //abstract -> X new object
 //abstract -> HV constructor for child class call
+//abstract -> 唔需要人知個method 點做
 
 
 public abstract class Shape {
@@ -41,7 +42,7 @@ public abstract class Shape {
   public static double totalArea(Shape[] shapes){
     BigDecimal total = new BigDecimal(0.0);
     for (int i =0 ; i< shapes.length; i++){
-      if (shapes !=null) {
+      if (shapes[i] !=null) {
         total = total.add(BigDecimal.valueOf(shapes[i].area(RoundingMode.FLOOR,2)));//-> shapes[i].area -> Polymorphism
         //total.add -> 會起一個新object -> total = total.add -> total 指住一個新object
 
@@ -60,13 +61,18 @@ public abstract class Shape {
     Circle c1 = new Circle(2, Color.BLACK);
     Circle c2 = new Circle(4, Color.BLUE);
     Square s1 = new Square(5, Color.WHITE);
+    Rectangle r1 = new Rectangle(2, 5, Color.BLACK);
+    Trapezoid t1 = new Trapezoid(2, 4, 2, Color.WHITE);
     
     Shape.add(s1);
     Shape.add(c1);
     Shape.add(c2);
+    Shape.add(r1);
+    //Shape.add(t1);
     //runtime 先決定 run 那一個method (circle or square)
 
     System.out.println(Shape.totalArea(shapes));
+    //103.82
 
 
 

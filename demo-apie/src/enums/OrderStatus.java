@@ -45,20 +45,25 @@ public enum OrderStatus {
     return null;//throw
   }
 
-  public OrderStatus nextStatus(int statusCode){
+  public OrderStatus nextStatus(){
     int code = this.statusCode < 5 ? this.statusCode+1 : this.statusCode;
-    return getOrderStatus(code+1);//4 (this.statusCode)-> 5 (next)
+    // condition:  this.statusCode < 5
+    // if true -> this.statusCode+1 -> forward
+    //if not -> this.statusCode -> finish
+    return getOrderStatus(code);//4 (this.statusCode)-> 5 (next)
   }
 
   //2. check if the status is forwarded -> return a boolean
-  public static boolean isForwarded (OrderStatus orderStatus){
+  public boolean isForwarded (OrderStatus orderStatus){
     //return newStatus.getStatusCode() > oldStatus.getStatusCode();
     return this.statusCode < orderStatus.getStatusCode();
+    //delivered < Shipped
     //return +ve nums -> forwarded
   }
 
   public static void main(String[] args) {
-    System.out.println(OrderStatus.CLOSE.nextStatus());//return OrderStatus.close
+    System.out.println(OrderStatus.SHIPPED.nextStatus());//return OrderStatus.close
     System.out.println(OrderStatus.DELIVERED.isForwarded(OrderStatus.SHIPPED));
+    //OrderStatus.DELIVERED -> a value  4
   }
 }

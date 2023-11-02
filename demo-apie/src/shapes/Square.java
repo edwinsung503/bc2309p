@@ -20,9 +20,9 @@ public class Square extends Shape {
   }
 
   @Override
-  public double area(RoundingMode mode, double length){
+  public double area(RoundingMode mode, int dp){
     BigDecimal sLength = BigDecimal.valueOf(this.length);
-    return sLength.multiply(sLength).setScale(length, mode).doubleValue();
+    return sLength.multiply(sLength).setScale(dp, mode).doubleValue();
   }
   
 }
