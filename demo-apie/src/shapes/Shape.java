@@ -39,10 +39,18 @@ public abstract class Shape {
   public Color getColor(){
     return this.color;
   }
-  public static double totalArea(Shape[] shapes){
+
+  public void setColor (Color color){
+    this.color = color;
+  }
+
+
+
+  public static double totalArea(Shape[] shapes){//放入去的objects 係extend 緊shape
     BigDecimal total = new BigDecimal(0.0);
     for (int i =0 ; i< shapes.length; i++){
       if (shapes[i] !=null) {
+        // shapes[i].area -> polymorphism
         total = total.add(BigDecimal.valueOf(shapes[i].area(RoundingMode.FLOOR,2)));//-> shapes[i].area -> Polymorphism
         //total.add -> 會起一個新object -> total = total.add -> total 指住一個新object
 
@@ -55,20 +63,27 @@ public abstract class Shape {
     }
     return total.doubleValue();//178.53
   } 
-
+  //interface/ parent class 去實踐 polymorhishm
   public static void main(String[] args) {
     //new 2 Circle and 1 Square , and put them into the Shape []
-    Circle c1 = new Circle(2, Color.BLACK);
-    Circle c2 = new Circle(4, Color.BLUE);
+    //Circle c1 = new Circle(2,Color.BLACK);
+    Circle c1 = Circle.of(3.0, Color.BLACK);
+
+    //Circle c2 = new Circle(4, Color.BLUE);
+    Circle c2= Circle.of(3, Color.BLUE);
+    //why 可以放3.0/ 3 都可以?? 3-> 3.0 因為upcase
+    //本身入int 但radius type 係double -> 因為upcase 左
     Square s1 = new Square(5, Color.WHITE);
+    
+
     Rectangle r1 = new Rectangle(2, 5, Color.BLACK);
     Trapezoid t1 = new Trapezoid(2, 4, 2, Color.WHITE);
     
     Shape.add(s1);
     Shape.add(c1);
-    Shape.add(c2);
+    Shape.add(c2);  
     Shape.add(r1);
-    //Shape.add(t1);
+    Shape.add(t1);
     //runtime 先決定 run 那一個method (circle or square)
 
     System.out.println(Shape.totalArea(shapes));
