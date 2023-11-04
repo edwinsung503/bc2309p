@@ -89,6 +89,14 @@ public abstract class Shape {
     System.out.println(Shape.totalArea(shapes));
     //103.82
 
+    Shape s2 = Circle.of(5.0, Color.WHITE);// static method call constructor
+    ////create a self constructor at Square to  call constructor
+    Shape s3 = Square.valueOf(4.9,Color.BLACK);
+
+    //static method 放邊到(其他file)
+    //instane method 有this 的concept -> 只可以放係同class name 的File
+
+
 
 
   }

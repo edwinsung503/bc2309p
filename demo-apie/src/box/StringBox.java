@@ -1,6 +1,6 @@
 package box;
 
-public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知什麼方法得出結果  
+public class StringBox implements CharSequence{//Encapsulation,所有野都係封裝, 用家唔使知什麼方法得出結果  
   
   private char [] arr; //Saving "sample"
   //string 由char 組成, 唔可以改arr 入面的野
@@ -12,6 +12,10 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
     return new StringBox(s);
     
   } 
+
+  public StringBox(char [] arr) {
+    this.arr =arr;
+  }
 
   private StringBox(String s){ 
     this.arr = new char[s.length()];
@@ -51,13 +55,33 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
   }
 
   //getter
+  @Override
   public int length(){
     return this.arr.length;  
   }
   //getter
+  @Override// already implement Charsquence
   public char charAt(int index){
    return this.arr[index];
   } 
+
+  @Override
+  public CharSequence subSequence(int start , int end) {//1,4 -> a str of length
+    //CharSequence 係一個class implment by StringBox
+    //所以= return a StringBox 的object
+    if(end == start) {
+      return "";
+    } else if (end < start) {
+      return new StringBox(this.arr); //return 原本array -> return this;但我想return 一個新object -> 唔想俾人desotry
+    }
+    char [] newArr = new char [end - start] ;
+    for (int i= start; i< end ; i++) {
+      newArr [i] = this.arr[i];
+    }
+    return new StringBox(newArr); // 因為寫左個constructor 放array
+  }
+
+
   
   //use stringbuilder -> can be faster
   //public String subString(int fromIndex, int toIndex){
@@ -96,6 +120,27 @@ public class StringBox {//Encapsulation,所有野都係封裝, 用家唔使知�
     //how to save substring value (!!!) -> find at append method -> return new 
 
     //private 的野用public 的方法去爆X佢
+
+    System.out.println("hello".substring(1,1).equals(""));//true
+    System.out.println("hello".substring(1,2));//e
+    //System.out.println("hello".substring2,1);//error
+
+    //Polymorphism - Interface -> 放哂implmentation class 包括String & StringBox
+    CharSequence str = "hello world";// string implment charSequence interface
+    str = new StringBox("hello world");// 換左新object
+    //str 入面係StringBox -> 
+    // . 到什麼係要用什麼X定 -> call what method 係睇type
+    //str 現在只可以.CharSequence 的method
+    System.out.println(str.length());//11
+    System.out.println(str.toString());//hello world
+
+    
+    String str2 = "abcd";
+    System.out.println(str2.length()); //4
+    System.out.println(str2.toString());//abcd
+    //new a String "abcd"
+    //放String 入String str2
+    //所以係睇String str2 係什麼type, .method睇String str2 的String method
   }
 
 }

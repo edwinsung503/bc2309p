@@ -8,10 +8,16 @@ public class Square extends Shape {
 
   private double length;
 
+  //create a self constructor
+  public static Square valueOf(double length, Color color) {
+    return new Square (length);
+  }
+
   public Square (double length, Color color){
     super(color);
     this.length = length;
   }
+
   public double getLength(){
     return this.length;
   }
