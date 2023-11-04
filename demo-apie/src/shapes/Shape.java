@@ -71,7 +71,7 @@ public abstract class Shape {
 
     //Circle c2 = new Circle(4, Color.BLUE);
     Circle c2= Circle.of(3, Color.BLUE);
-    //why 可以放3.0/ 3 都可以?? 3-> 3.0 因為upcase
+    //why 可以放3.0/ 3 都可以?? 3-> 3.0 因為upcast
     //本身入int 但radius type 係double -> 因為upcase 左
     Square s1 = new Square(5, Color.WHITE);
     

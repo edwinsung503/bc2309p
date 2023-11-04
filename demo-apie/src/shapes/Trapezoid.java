@@ -17,9 +17,9 @@ public class Trapezoid extends Shape{
     this.lowerLine = lowerLine;
     this.height = height;
   }
-  public void setBase(double base){
-    this.base =base;
-  }
+  //public void setBase(double base){
+    //this.base =base;
+  //}
   public double getUpperLine (){
     return this.upperLine;
   }
@@ -34,7 +34,8 @@ public class Trapezoid extends Shape{
   public double area(RoundingMode mode, int dp) {
     BigDecimal tUpperLine = BigDecimal.valueOf(this.upperLine);
     BigDecimal tLowerLine = BigDecimal.valueOf(this.lowerLine);
-    BigDecimal tBase = BigDecimal.valueOf(2.0);
+    //BigDecimal tBase = BigDecimal.valueOf(2.0);
+    BigDecimal tBase = new BigDecimal(2.0);
     BigDecimal tHeight = BigDecimal.valueOf(this.height);
     return tUpperLine.add(tLowerLine).divide(tBase).multiply(tHeight).setScale(dp,mode).doubleValue();
 

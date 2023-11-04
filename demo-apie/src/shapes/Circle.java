@@ -33,7 +33,7 @@ public class Circle extends Shape{
   //用家唔需要知radius save 低係什麼type -> float / double
 
   //Encapsulation
-  public static Circle of(double radius) {//overloading 1
+  public static Circle of(double radius) {//overloading 1 < - Complie-Time
     return new Circle(radius, Color.BLACK );  
   }
   public static Circle of(Color color) {//overloading 2 
@@ -119,7 +119,7 @@ public class Circle extends Shape{
     System.out.println(shape.area(RoundingMode.FLOOR,2));//4 * 4 * 3.14....
     //-> refer 到Circle 入面的method
 
-
+    //static method
     Circle circle2 = Circle.ofBlue(5);//encaplate 左, 封裝係唔使佢識咁多野
     //要用家舒服
     //唔使知道blue 係什麼, eg StringBox入面唔使知係string array
