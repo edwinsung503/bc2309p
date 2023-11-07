@@ -72,7 +72,8 @@ public class StringBox implements CharSequence{//Encapsulation,所有野都係�
     if(end == start) {
       return "";
     } else if (end < start) {
-      return new StringBox(this.arr); //return 原本array -> return this;但我想return 一個新object -> 唔想俾人desotry
+      return new StringBox(this.arr); 
+      //return 原本array -> return this;但我想return 一個新object -> 唔想俾人desotry
     }
     char [] newArr = new char [end - start] ;
     for (int i= start; i< end ; i++) {

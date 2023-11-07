@@ -8,12 +8,26 @@ public class Card {
   //花式 + 2- 10 / A / K / Q / J < - creat enum
 
   private Rank rank;
-  private Deck deck;
   private Suit suit;
 
-  private Suit (Rank rank, Deck deck, Suit suit) {
+  public Card (Rank rank, Suit suit) {
     this.rank = rank;
-    this.deck = deck;
+    this.suit = suit;
+  }
+
+  public Rank getRank() {
+    return this.rank;
+  }
+
+  public void setRank(Rank rank) {
+    this.rank = rank;
+  }
+
+  public Suit getSuit() {
+    return this.suit;
+  }
+
+  public void setSuit(Suit suit) {
     this.suit = suit;
   }
 

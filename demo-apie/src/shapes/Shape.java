@@ -64,6 +64,11 @@ public abstract class Shape {
     return total.doubleValue();//178.53
   } 
   //interface/ parent class 去實踐 polymorhishm
+
+  public double calculate(BigDecimal bd) {
+    return 1.0;
+  }
+
   public static void main(String[] args) {
     //new 2 Circle and 1 Square , and put them into the Shape []
     //Circle c1 = new Circle(2,Color.BLACK);
@@ -73,7 +78,7 @@ public abstract class Shape {
     Circle c2= Circle.of(3, Color.BLUE);
     //why 可以放3.0/ 3 都可以?? 3-> 3.0 因為upcast
     //本身入int 但radius type 係double -> 因為upcase 左
-    Square s1 = new Square(5, Color.WHITE);
+    Square s1 = Square.valueOf(10, Color.WHITE);
     
 
     Rectangle r1 = new Rectangle(2, 5, Color.BLACK);
@@ -89,12 +94,18 @@ public abstract class Shape {
     System.out.println(Shape.totalArea(shapes));
     //103.82
 
-    Shape s2 = Circle.of(5.0, Color.WHITE);// static method call constructor
-    ////create a self constructor at Square to  call constructor
-    Shape s3 = Square.valueOf(4.9,Color.BLACK);
+    //Shape s2 = Circle.of(5.0, Color.WHITE);// static method call constructor
+    //create a self constructor at Square to  call constructor
+    //Shape s3 = Square.valueOf(4.9,Color.BLACK);
 
     //static method 放邊到(其他file)
     //instane method 有this 的concept -> 只可以放係同class name 的File
+
+    StringBuilder s = new StringBuilder("abc");
+    boolean bool = s.append("def").isEmpty();
+
+    Shape s2 = Circle.of(5.0, Color.WHITE); //
+    Shape s3 = Square.valueOf(3, Color.BLUE);
 
 
 

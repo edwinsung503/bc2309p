@@ -2,7 +2,7 @@ package Poker.model;
 
 public class Deck {
   // 1個deck 有幾多牌
-  //牌
+  //牌睇下有幾多張牌
   private Card [] cards;
 
   public Deck (boolean withJoker) {
