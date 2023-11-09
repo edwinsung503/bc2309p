@@ -17,7 +17,7 @@ public class ArrayList2 {
       newIntegers[i++] = old;
     }
     newIntegers[i] = integer;
-    this.integers  = newIntegers;// ???? this.object = 新的Integers(old + new)
+    this.integers  = newIntegers;// ???? this.object = 新的Integers(old + new) -< ArrayList
     return true;
   }
 

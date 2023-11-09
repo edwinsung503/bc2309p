@@ -122,13 +122,14 @@ public class DemoArrayList {
     Integer [] result = new Integer[arr2.length];
     int k = 0;
     for (Object obj : arr2) {
-      if (obj !=null) {
+      if (obj ==null) {
         result[k++] = null;
       } else if (obj instanceof Integer) {// if it is Integer class -> 放返入去
         result[k++] = (Integer) obj;
       }
     }
     System.out.println(Arrays.toString(arr2));
+    System.out.println(Arrays.toString(result));
 
   }
 
