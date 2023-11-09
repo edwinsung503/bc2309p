@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DemoArrayList {
   
@@ -74,7 +75,8 @@ public class DemoArrayList {
     System.out.println(integers.get(2));//null
     
     //remove() by object
-    integers.remove(Integer.valueOf(10));
+    integers.remove(Integer.valueOf(10));// remove object referene -> remove address
+    //object 係新create -> , 揾到value = 10, 就remove 
     System.out.println(integers.size()); //2
     System.out.println(integers.get(0)); //3
     System.out.println(integers.get(1)); //null
@@ -130,6 +132,25 @@ public class DemoArrayList {
     }
     System.out.println(Arrays.toString(arr2));
     System.out.println(Arrays.toString(result));
+
+    //List
+    ArrayList<String> string3 = new ArrayList<>();
+    List<String> string4 = new ArrayList<>(); // 唔可以new List -< 因為list 係一個interface
+    //只可以call List 入面的method ArrayList > List 的method
+
+    //ArrayList.class implement Interface List
+    //so, the method in List must be implement by ArrayList, but ,
+    //some methods in ArrayList may not be in List
+
+    string3.add("hello");
+    string4.add("hello");
+
+    string3.remove("hello");
+    string4.remove("hello");
+    System.out.println("String3= "+string3);
+    System.out.println("String4= "+string4);
+
+    
 
   }
 
