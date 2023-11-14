@@ -18,7 +18,7 @@ public class Order {
     return this.orderItems.add(orderItem);
   }
 
-  public double total() {//total price
+  public BigDecimal total() {//total price
     //unit price + quantity -> Order.total()
     //double -> , for loop or for-each
     BigDecimal total = BigDecimal.valueOf(0);

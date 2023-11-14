@@ -23,8 +23,8 @@ public class Customer {
 
   public double totalOrderAmount(){
     BigDecimal totalOrderAmount = BigDecimal.valueOf(0);
-    for (Order item : this.orders) {
-      totalOrderAmount = totalOrderAmount.add(orders.total());
+    for (Order order : this.orders) {
+      totalOrderAmount = totalOrderAmount.add(order.total());
     }
     return totalOrderAmount.doubleValue();
   }
@@ -47,7 +47,6 @@ public class Customer {
     System.out.println(customer.totalOrderAmount());
     System.out.println(customer.isVip());
 
-    
 
   }
 
