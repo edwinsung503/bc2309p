@@ -63,7 +63,7 @@ public class NameList {
       //有id, 就check id
       if (head.getNext().id.equals(id)){
         //替換位置
-        this.next = head.next.next;
+        head.next = head.next.next;
         return id;
       } 
       head = head.getNext();
