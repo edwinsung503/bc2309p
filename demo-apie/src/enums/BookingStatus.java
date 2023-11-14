@@ -5,7 +5,7 @@ public enum BookingStatus {
   ORDERED(1),
   INPROGRESS(2),
   PROGRESSING(3),
-  INDELIVERY(4)
+  INDELIVERY(4),
   DELIVERED(5),
   ;
 

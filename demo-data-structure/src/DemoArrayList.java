@@ -115,7 +115,7 @@ public class DemoArrayList {
 
     //Conversion to Array (ArrayList to Array)
     //ArrayList<Integer> -> Integer []
-    //Case 1
+    //Case 
     Integer [] arr = integers2.toArray(new Integer[0]);
     System.out.println(Arrays.toString(arr));
     
@@ -135,7 +135,8 @@ public class DemoArrayList {
 
     //List
     ArrayList<String> string3 = new ArrayList<>();
-    List<String> string4 = new ArrayList<>(); // 唔可以new List -< 因為list 係一個interface
+    List<String> string4 = new ArrayList<>(); 
+    // 唔可以new List -< 因為list 係一個interface
     //只可以call List 入面的method ArrayList > List 的method
 
     //ArrayList.class implement Interface List

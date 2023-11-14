@@ -40,7 +40,7 @@ public enum Color {
   public Color getColorByCode(char code){//'a'
     for (Color color : Color.values()) {
       if (color.getCode() == code){
-        return color;
+        return color;//BLUE
       }
     }
     return null;

@@ -56,7 +56,6 @@ public class Box {
       //System.out.println(color.getCode());
       //System.out.println(color.getDescription().toLowerCase());
       System.out.println(color.name()+" "+color.getCode());
-
     }
 
     //valueOf() -> //Class.valueOf()
