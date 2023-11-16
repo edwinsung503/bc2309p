@@ -1,7 +1,6 @@
 //Design a Class(Node), link up another Node object
 
 import java.util.LinkedList;
-//import javax.print.attribute.standard.MediaSize.NA;
 
 public class NameList {
   
@@ -15,7 +14,7 @@ public class NameList {
 
   public NameList (){}
 
-   public NameList getNext(){
+  public NameList getNext(){
     return this.next;
   }
 
@@ -30,9 +29,6 @@ public class NameList {
   public NameList getMiddle(){
     //TodoList
     //Step 1 count total num of elements / 2
-    int count =0;
-    NameList num = this;
-    
     //Step 2 loop until the half count
     return null;
   }
@@ -44,6 +40,7 @@ public class NameList {
   }
   public void add(String id){
    //this.next = new NameList(id);
+   //create a new object
    this.getLast().next = new NameList(id);
   }
 
@@ -58,12 +55,13 @@ public class NameList {
       this.next = this.next.next; //node2 勾住 node3
       return id;
     }
-    NameList head = this;
+    NameList head = this; 
     while (head.getNext()!=null){
       //有id, 就check id
+      //2nd,3rd node checking
       if (head.getNext().id.equals(id)){
         //替換位置
-        head.next = head.next.next;
+        head.next = head.next.next;//this.next = (this.next) .next (-> 下一個)
         return id;
       } 
       head = head.getNext();
@@ -74,9 +72,6 @@ public class NameList {
     //node1.next = node3
     //node1.getNext() => node3
 
-    //while (this.id == id){
-      //System.out.println(this.id);
-    //}
   }
 
   public int size() {

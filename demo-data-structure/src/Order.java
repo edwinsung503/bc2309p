@@ -26,7 +26,7 @@ public class Order {
       //total = total.add(BigDecimal.valueOf(item.total()));//.add (BigDecimal) < 一個新Object
       total = total.add(item.total());
     }
-    return total.doubleValue();
+    return total;
   }
 
 
