@@ -1,6 +1,8 @@
 //Design a Class(Node), link up another Node object
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class NameList {
   
@@ -136,6 +138,25 @@ public class NameList {
     System.out.println("addAll= "+nl2);
     nl2.remove("XYZ");
     System.out.println("remove XYZ= "+nl2);
+    nl2.get(nl2.size()-1);// no arrayin nl2
+
+    ArrayList<String> nl3 = new ArrayList<>(); //
+    nl3.add("ABC");
+    nl3.add("DEF");
+    nl3.add("GHI");
+    nl3.get(nl3.size()-1);//arr[arr.length-1]
+    //如果係要揾最後個位置就用ArrayList, 因為即刻揾到
+
+    List<String> nl4 = new ArrayList<>();
+    nl4 = new LinkedList<>();
+    //Compile time in Java: List<String> (Type) determine which methods can be invoked
+    //Run time in Java: nl4 will know which object it points to.
+    //ArrayList or LinkedList Ojbect??
+    
+    //最後行先知行左linkedList 的.add() 所以runtime 時係行linkedlist
+    nl4.add("ABC");
+    nl4.remove(0);
+    System.out.println(nl4.size());
 
   }
 
