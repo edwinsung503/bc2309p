@@ -9,6 +9,10 @@ public class Order {
 
   private ArrayList<OrderItem> orderItems;
 
+  public  ArrayList<OrderItem> getOrderItems() {
+    return this.orderItems;
+  }
+  
   public Order(){
     this.orderNo = ++counter;
     this.orderItems = new ArrayList<>();

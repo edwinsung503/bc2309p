@@ -109,12 +109,26 @@ public class NameList {
     System.out.println("List tail id = "+head.id);
     //-> 成功SAVE 左一個array 的樣  -> LinkedList
 
-
+    // Custom List of String, implemented by LinkedList mechanism
     NameList nl = new NameList();
     nl.add("ABC");
     nl.add("DEF");
     nl.add("XYZ");
+    System.out.println("size=" + nl.size()); // 4
 
+    // Before Removing
+    System.out.println(nl.toString());
+    // After Removing
+    nl.remove("DEF");
+    System.out.println(nl.toString());
+    // After Removing
+    nl.remove("XYZ");
+    System.out.println(nl.toString());
+    // After Removing
+    nl.remove("IJK");
+    System.out.println(nl.toString());
+
+    // Compare to LinkedList
     LinkedList<String> nl2 = new LinkedList<>();
     nl2.add("ABC");
     nl2.add("DEF");
