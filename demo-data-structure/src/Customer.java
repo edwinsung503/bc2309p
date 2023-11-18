@@ -29,6 +29,10 @@ public class Customer {
     return totalOrderAmount.doubleValue();
   }
 
+  @Override
+  public String toString(){
+    return "Customer(name "+this.name+" orders= "+this.orders+").";
+  }
 
 
   public static void main(String[] args) {
