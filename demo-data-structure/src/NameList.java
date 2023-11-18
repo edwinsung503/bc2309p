@@ -10,29 +10,14 @@ public class NameList {
 
   private NameList next;//-> Object reference
 
+  public NameList (){}
+
   public NameList(String id){
     this.id =id;
   }
 
-  public NameList (){}
-
   public NameList getNext(){
     return this.next;
-  }
-
-  public NameList getLast(){
-    NameList head = this;//自己(Object) 去call 揾下一個 -> this == 自己 
-    while (head.getNext()!= null) {//if head.getNext() == null, exit
-      head = head.getNext();
-    }
-    return head;
-  }
-
-  public NameList getMiddle(){
-    //TodoList
-    //Step 1 count total num of elements / 2
-    //Step 2 loop until the half count
-    return null;
   }
 
   public void add(NameList next){
@@ -45,28 +30,35 @@ public class NameList {
    //create a new object
    this.getLast().next = new NameList(id);
   }
+  public NameList getLast(){
+    NameList head = this;//自己(Object) 去call 揾下一個 -> this == 自己 
+    while (head.getNext()!= null) {//if head.getNext() == null, exit
+      head = head.getNext();
+    }
+    return head;
+  }
 
   public String remove(String id) {
     //return remove element
     //if not found, return null
     //this cannot be replace
     //Special case handling
-    if (this.id == id) {//eg. node1
+    if (this.id.equals(id)) {//eg. node1
       this.id = this.next.id;//node2 id -> node1 id
       //this.next(下一個) 的ID 
       this.next = this.next.next; //node2 勾住 node3
       return id;
     }
     NameList head = this; 
-    while (head.getNext()!=null){
+    while (head.next!=null){
       //有id, 就check id
       //2nd,3rd node checking
-      if (head.getNext().id.equals(id)){
+      if (head.next.id.equals(id)){
         //替換位置
         head.next = head.next.next;//this.next = (this.next) .next (-> 下一個)
         return id;
       } 
-      head = head.getNext();
+      head = head.next;
     }
     return null;
     //node 1 -> node 2 -> node 3
@@ -75,12 +67,22 @@ public class NameList {
     //node1.getNext() => node3
 
   }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder(this.id);
+    NameList head = this;
+    while (head.next != null) {
+      sb.append(" -> ").append(head.next.id);
+      head = head.getNext();
+    }
+    return sb.toString();
+  }
 
   public int size() {
     int count = 1;
     NameList head = this;
-    while(head.getNext()!=null){
-      head = head.getNext();
+    while(head.next!=null){
+      head = head.next;
       count ++;
     }
     return count;
@@ -88,15 +90,16 @@ public class NameList {
 
   public static void main(String[] args) {
     NameList node1 = new NameList("John");// node1 -> node2
-    NameList node2 = new NameList("Mary");
     System.out.println("Node1 ref= "+node1);
+    NameList node2 = new NameList("Mary");
+    
     node1.add(node2);//1個object reference 貼住1個object reference
     System.out.println("Node2 ref= "+node2);
 
     NameList node3 = new NameList("Peter");
     node2.add(node3);
-    System.out.println("Node3 ref= "+node3);
-    System.out.println("Node3 ref= "+node3.id);
+    //System.out.println("Node3 ref= "+node3);
+    //System.out.println("Node3 ref= "+node3.id);
 
     //node 1 -> node 2-> node 3
     //揾到node 2 先揾到node 3
@@ -112,7 +115,7 @@ public class NameList {
     //-> 成功SAVE 左一個array 的樣  -> LinkedList
 
     // Custom List of String, implemented by LinkedList mechanism
-    NameList nl = new NameList();
+    NameList nl = new NameList("IJK");
     nl.add("ABC");
     nl.add("DEF");
     nl.add("XYZ");

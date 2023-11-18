@@ -33,6 +33,11 @@ public class DemoQueue {
       //}
       str = strings.poll();
       strings.add(str.concat(str));//GHIGHI / DEFDEF
+      //System.out.println("The 1st= "+strings);
+      //The 1st= [DEF, GHIGHI]
+      //The 2nd= [GHIGHI, DEFDEF]
+      //The 3rd= [DEFDEF, GHIGHIGHIGHI]      
+      //The 4th= [GHIGHIGHIGHI, DEFDEFDEFDEF]
       if (++queueCount >= size *2) {
         break;
       }
@@ -62,7 +67,7 @@ public class DemoQueue {
     strings.remove("MNO");
     System.out.println(strings);
 
-    //要有toString<< , Linkedlist 有toString 的method 先可以print String出來
+    //可以print String -> 要有toString<< , Linkedlist 有toString 的method 先可以print String出來
 
     //List -> 有次序
     //Queue-> 有次序, 但唔可以用arraylist 拎出來
