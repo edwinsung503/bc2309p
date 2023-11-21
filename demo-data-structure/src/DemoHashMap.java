@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DemoHashMap {
+  private static int keyCount = 0;
+
   public static void main(String[] args) {
     //<key, value> pair -> Entry
     Map<String,String> stringMap = new HashMap<>();
@@ -41,7 +43,7 @@ public class DemoHashMap {
     //containvalue
     for (String str : strings) {
       if (! stringMap.containsValue(str)){
-        stringMap.put("", str);
+        stringMap.put(generateKey(), str);
       } else {
         System.out.println(str+"alread exit");
       }
@@ -51,13 +53,10 @@ public class DemoHashMap {
       System.out.println("Key= "+entry.getKey()+", value= "+entry.getValue());
     }
 
-    int count = 0;
-    public String genKey (int count){
-      return "G".concat(++count); 
-    }
-
-
     
-
   }
+  public static String generateKey() {
+      return "G" + ++keyCount;
+  }
+
 }

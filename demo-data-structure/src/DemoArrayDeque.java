@@ -38,6 +38,7 @@ public class DemoArrayDeque {
 
     
     //Queue Type -> DeQue
+    //Queue<String> arrayQueue = new ArrayDeque<>();
     Deque<String> deque2 = (Deque) arrayQueue ;
     //runtime 先知 compiler 係咪可以放 arrayQueue Deque 型態(runtime 時才決定 risk of type safetly)
     //queue -> 放入deque 的型態要confirm arrayQueue 係有齊queue 同deque 的method

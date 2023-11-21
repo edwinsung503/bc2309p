@@ -34,9 +34,5 @@ public class DemoDeque {
     //poolLast()
 
     customers.peek();
-
-    
-
-
   }
 }
