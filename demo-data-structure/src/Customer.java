@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Customer {
 
@@ -34,6 +35,25 @@ public class Customer {
     return "Customer(name "+this.name+" orders= "+this.orders+").";
   }
 
+  @Override
+  public boolean equals(Object obj){
+    if (this == obj){
+      return true;
+    }
+    if (!(obj instanceof Customer)){
+      return false;
+    }
+    Customer c = (Customer) obj;
+    if (this.name.equals(c.name)){
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public int hashCode(){
+    return Objects.hash(this.name);
+  }
 
   public static void main(String[] args) {
     Customer customer = new Customer("John");
