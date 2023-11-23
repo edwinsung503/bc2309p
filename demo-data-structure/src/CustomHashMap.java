@@ -6,7 +6,7 @@ public class CustomHashMap {
 
   public static void main(String[] args) {
     Map<Integer, OrderItem> itemMap = new HashMap<>();
-    itemMap.put(1,new OrderItem(2, 3.4));
+    itemMap.put(1,new OrderItem(2, 3.4));//OrderItem from another java.file
     itemMap.put(2,new OrderItem(4, 5.4));
     itemMap.put(3,new OrderItem(6, 7.4));
 

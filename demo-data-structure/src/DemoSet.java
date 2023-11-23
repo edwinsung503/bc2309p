@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,9 +38,9 @@ public class DemoSet {
     strings.add("hello");
     strings.add("world");
     strings.add("world");
-    //add method -> filter duplicate element
+    
+    //set -> add method -> filter duplicate element
     //filter -> use for loop to check duplicate times
-
     Set<String> strings2 = new HashSet<>();//interface
     System.out.println(strings2.add("hello"));
     System.out.println(strings2.add("world"));

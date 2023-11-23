@@ -17,7 +17,7 @@ public class DemoHashMap {
     System.out.println(stringMap.get("A"));//John
     System.out.println(stringMap.get("A2"));//Sally
     System.out.println(stringMap.get(null));//Edwin
-
+    stringMap.getOrDefault(stringMap, null);
     //Loop Map.Entry -> entrySet()
     for (Map.Entry<String, String> entry : stringMap.entrySet()){
       System.out.println("Key= "+entry.getKey()+", value= "+entry.getValue());
