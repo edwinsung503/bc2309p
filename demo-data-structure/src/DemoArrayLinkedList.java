@@ -10,7 +10,7 @@ public class DemoArrayLinkedList {
     //long start1 = System.currentTimeMillis();
     //System.out.println(start);//1700293029920
     int count = 1000000;
-    List<String> arrayList = new ArrayList<>();
+    List<String> arrayList = new ArrayList<>();//Reference Type (Object -> a class)
     for (int i=0; i< count; i++){
       arrayList.add("Test");
     }

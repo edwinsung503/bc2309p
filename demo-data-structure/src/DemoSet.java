@@ -66,7 +66,8 @@ public class DemoSet {
     Set<String> set = new HashSet<>();
     set.add("abc");
     System.out.println(set.size());//1
-
+    //1.ADD -> FILER OUT DUPLICATED
+    //2.數DUPLICATED NO
     
 
 

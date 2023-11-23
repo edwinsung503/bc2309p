@@ -5,6 +5,7 @@ import java.util.Map;
 public class CustomHashMap {
 
   public static void main(String[] args) {
+    //String class - already write -> equal = therefore no need self write, if self write Object-> need self write a equal method
     Map<Integer, OrderItem> itemMap = new HashMap<>();
     itemMap.put(1,new OrderItem(2, 3.4));//OrderItem from another java.file
     itemMap.put(2,new OrderItem(4, 5.4));
