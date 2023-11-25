@@ -26,11 +26,12 @@ public class DemoPQ{
     while(!pq2.isEmpty()){
       System.out.println(pq2.poll());
     }
-
     
     //老人家要排先=隊優先
     //> 再用名排
-    Queue<PersonPQ> pq3 = new PriorityQueue<>();
-    pq3.add("Edwin");
+    Queue<Integer> pq3 = new PriorityQueue<>(new PersonSortByAgeAsc());
+    pq3.add(3);
+    pq3.add(434);
+    pq3.add(65);
   }
 }

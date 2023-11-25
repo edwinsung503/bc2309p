@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class PersonPQ {
   
   private String name;
@@ -15,9 +17,4 @@ public class PersonPQ {
   public int getAge(){
     return this.age;
   }
-  @Override
-  public String add(){
-    return this.name;
-  }
-
 }
