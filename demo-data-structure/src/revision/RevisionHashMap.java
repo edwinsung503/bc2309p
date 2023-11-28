@@ -34,6 +34,8 @@ public class RevisionHashMap {
 
     RevisionHashMap.putNew(bookMap, new Book("Edwin", 34.2));
     System.out.println(bookMap);
+
+    
     String bookKey = "B3";
     if (!bookMap.containsKey(bookKey)){
       bookMap.put(bookKey,new Book("Peggy", 44.3));
