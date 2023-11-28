@@ -3,6 +3,8 @@ public class Examples {
   //when x =5, return 5+4+3+2+1
   //method 自己call 返自己  
   public static int sum(int x) {
+    //Recursion<<<
+    //Base criteria
     if (x ==1){
       return 1;//sum(1)-> 1
     }
