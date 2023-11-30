@@ -16,6 +16,6 @@ public class Runner <T extends Animal> {
 
   public static void main(String[] args) {
     Runner<Dog> dogRunner = new Runner<>(new Dog());
-    //Runner<Person> personRunner = null;
+    //Runner<Person> personRunner = new Runner<>(new Person());
   }
 }

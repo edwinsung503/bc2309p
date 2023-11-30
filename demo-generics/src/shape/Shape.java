@@ -11,7 +11,7 @@ public abstract class Shape {
     BigDecimal total = new BigDecimal(0);
     for (T s : shapes) {
       total = total.add(BigDecimal.valueOf(s.area()));
-      // < new a Object-> 要揾個object ref 接住佢
+      // BigDecimal -> == new a Object-> 要揾個object ref 接住佢
     }
     return total.doubleValue();
   }

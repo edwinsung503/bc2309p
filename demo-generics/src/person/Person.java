@@ -4,6 +4,6 @@ public class Person implements Swimable{
   
   @Override
   public int swim(){
-    return 
+    return 2;
   }
 }
