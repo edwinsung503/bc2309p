@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Printer<T> {
-  
+public class Printer<T> {//extends
+  //public class Printer<T extend Number> {} < Type < inherit extend Number Type -> Double / Integer
+
   //自己寫generic
   T x;//T > 俾任何的type , 等用家使用, 到時先要入type
   //幫你寫少左個class < KeyPoint
