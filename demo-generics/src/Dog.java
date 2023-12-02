@@ -50,8 +50,9 @@ public class Dog extends Animal implements Comparable<Animal>{
     Printer<Dog> dogPrinter2 = new Printer<>();
     Dog.makeSound(dogPrinter2);//OK
 
-    List<Dog> arr = new ArrayList<>();
-    Collections.sort(List.of(new Dog("ABC", 17),new Dog("BDC", 19)));
+    List<Dog> dogs = new ArrayList<>(List.of(new Dog("CBA", 20), new Dog("ABC", 10), new Dog("ZZZ", 3)));
+    Collections.sort(dogs);
+    System.out.println(dogs);
   }
 
   

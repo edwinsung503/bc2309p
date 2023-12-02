@@ -7,6 +7,7 @@ public abstract class Shape {
   
   abstract double area();
   //similar to compareTo
+  //Case  1
   public static <T extends Shape> double totalArea(List<T> shapes){
     BigDecimal total = new BigDecimal(0);
     for (T s : shapes) {
@@ -15,6 +16,7 @@ public abstract class Shape {
     }
     return total.doubleValue();
   }
+  //Case  2
   public static double totalArea2(List<? extends Shape> shapes){
     //must be shape , 因為可以係circle , 因為shape 上面可以拎到square , 所以唔
     BigDecimal total = new BigDecimal(0);
