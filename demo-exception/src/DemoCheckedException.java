@@ -35,6 +35,20 @@ public class DemoCheckedException{
     } catch (Exception e) {
       result2 = -1;
     }
+    //Exmaple 2
+    System.out.println(divided(6, 3));//2
+    //System.out.println(divided(2, 0)); // java.lang.ArithmeticException: / by zero
+
+    try {
+      //Since divided3 would throw a check exception
+      //so the method caller has to handle the method call by try catch
+      result = divided2(9, 3) ;
+    } catch (BusinessException e) {
+      result = -1;//由用家決定如果有exception , 係會出什麼result
+    }
+
+    
+
   }
 
   public static int  sum(int x1, int x2) throws Exception{
@@ -42,7 +56,21 @@ public class DemoCheckedException{
       return x1 + x2;
     }
     throw new Exception();//要人handle依個method
-
+  }
+  //Example 1
+  public static int divided (int x, int y){ // is it a must to catch ArithmeticException? No
+    int result = x / y ;
+    return result;
+  }
+  //The method signature need to "throws exception" if the logic throw checked exception
+  public static int divided2 (int x, int y) throws BusinessException {
+    int result ;
+    try {
+      result = x/y;
+    } catch (ArithmeticException e){
+      throw new BusinessException();//Convert unchecked exception to checked exception
+    }
+    return result;
   }
 
 
