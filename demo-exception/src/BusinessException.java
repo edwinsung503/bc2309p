@@ -11,6 +11,7 @@ public class BusinessException extends Exception{
   //public BusinessException () {
    // 
   //}
+  //建code唔同team去清楚溝通
   public BusinessException (ErrCode errCode) {
     super(errCode.getErrMsg());//想keep 返個message
     //call parent constructor construct 到一個 Exception
@@ -23,6 +24,12 @@ public class BusinessException extends Exception{
   }
   public int getCode(){
     return this.code;
+  }
+  //"10002 - Server Connection Time Out"
+  //need review
+  public String getFullMessage(){
+    return String.valueOf(this.code).concat(super.getMessage());
+    //within 自己的class 內call 可以用super
   }
 
 }

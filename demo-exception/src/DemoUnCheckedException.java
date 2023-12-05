@@ -42,8 +42,9 @@ public class DemoUnCheckedException{
     try {
       //Since divided3 would throw a check exception
       //so the method caller has to handle the method call by try catch
-      result = divided3(9, 3) ;
-    } catch (Business1Exception e) {
+      result = divided3(9, 0) ;
+    } catch (BusinessException e) {
+      System.out.println(e.getFullMessage());
       result = -1;//由用家決定如果有exception , 係會出什麼result
     }
 
@@ -74,12 +75,12 @@ public class DemoUnCheckedException{
     return result;
   }
   // The method signature need to add "throws exception" if the logic throw checked exception
-  public static int divided3(int x, int y) throws Business1Exception {
+  public static int divided3(int x, int y) throws BusinessException {
     int result;
     try {
       result = x / y;
     } catch (ArithmeticException e) { // Convert uncheck exception to checked exception
-      throw new Business1Exception();//我唔接, 上一手接LA->上1手再catch
+      throw new BusinessException(ErrCode.ARITHMETIC_EXCEPTION);//我唔接, 上一手接LA->上1手再catch
     }
     return result;
   }
