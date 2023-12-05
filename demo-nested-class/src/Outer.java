@@ -38,6 +38,5 @@ public class Outer {
       System.out.println(this.name2+" "+ Outer.value);//static variable 可以call
     }
 
-
   }
 }

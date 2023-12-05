@@ -15,6 +15,4 @@ public class Library {
       return prefix + this.id;
     }  
   }
-
-
 }
