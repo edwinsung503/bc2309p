@@ -5,5 +5,6 @@ public class DemoNumberFormat {
   }
   public static int parseInt(String s){
    return Integer.parseInt(s); 
+   //parseInt that takes a string as a parameter and returns an integer.
   }
 }

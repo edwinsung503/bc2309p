@@ -4,10 +4,11 @@ import java.io.FileReader;
 
 public class DemoFileNotFound {
   
-  //Approach 1 to fix check exception :Add try catch
   public static void main(String[] args)  {
     File file = new File("D:\\");
+    //Approach 1
     read(file);
+    //Approach 2
     try {
       read2(file);
     } catch (FileNotFoundException e){

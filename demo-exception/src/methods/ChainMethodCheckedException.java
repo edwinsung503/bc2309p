@@ -1,7 +1,5 @@
 package methods;
 
-import java.io.EOFException;
-
 public class ChainMethodCheckedException {
 
   public static void main(String[] args) {
@@ -10,7 +8,7 @@ public class ChainMethodCheckedException {
     //A & B do not handle it -> throw 再俾上一手去
     //main handle it by try catch
     try {
-      methodA(3);
+      methodA(20);
     } catch (Exception e) {
 
     }

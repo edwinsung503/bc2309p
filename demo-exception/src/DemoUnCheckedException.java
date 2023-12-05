@@ -1,4 +1,4 @@
-public class DemoCheckedException{
+public class DemoUnCheckedException{
 
   public static void main(String[] args) {
     //unchecked exception
@@ -10,7 +10,7 @@ public class DemoCheckedException{
     } catch (NullPointerException e){
       s= "";
     }
-    //1.ArithmeticException (/ by zero)
+    //1.ArithmeticException (by zero)
     //2.NullPointerException  
     //Excpetion 可check(必須solve) / uncheck (no need solve)
     //Checked Exception-> before compile - 逼用家自己決定如果有exception 要點做
@@ -35,20 +35,20 @@ public class DemoCheckedException{
     } catch (Exception e) {
       result2 = -1;
     }
-    //Exmaple 2
-    System.out.println(divided(6, 3));//2
-    //System.out.println(divided(2, 0)); // java.lang.ArithmeticException: / by zero
+    // Example 1: ArithmeticException
+    System.out.println(divided(9, 3));//3
+    System.out.println(divided(2, 0)); // java.lang.ArithmeticException: / by zero
 
     try {
       //Since divided3 would throw a check exception
       //so the method caller has to handle the method call by try catch
-      result = divided2(9, 3) ;
-    } catch (BusinessException e) {
+      result = divided3(9, 3) ;
+    } catch (Business1Exception e) {
       result = -1;//由用家決定如果有exception , 係會出什麼result
     }
 
-    
-
+    // Example 2:
+    arrayIndexOutOfBound(new int[10]); // 
   }
 
   public static int  sum(int x1, int x2) throws Exception{
@@ -57,20 +57,35 @@ public class DemoCheckedException{
     }
     throw new Exception();//要人handle依個method
   }
-  //Example 1
+
+  // Example 1: ArithmeticException
   public static int divided (int x, int y){ // is it a must to catch ArithmeticException? No
     int result = x / y ;
     return result;
   }
   //The method signature need to "throws exception" if the logic throw checked exception
-  public static int divided2 (int x, int y) throws BusinessException {
+  public static int divided2 (int x, int y) {
     int result ;
     try {
       result = x/y;
     } catch (ArithmeticException e){
-      throw new BusinessException();//Convert unchecked exception to checked exception
+      result = 0; //Convert unchecked exception to checked exception
     }
     return result;
+  }
+  // The method signature need to add "throws exception" if the logic throw checked exception
+  public static int divided3(int x, int y) throws Business1Exception {
+    int result;
+    try {
+      result = x / y;
+    } catch (ArithmeticException e) { // Convert uncheck exception to checked exception
+      throw new Business1Exception();//我唔接, 上一手接LA->上1手再catch
+    }
+    return result;
+  }
+
+  public static void arrayIndexOutOfBound(int[] arr) {
+    arr[arr.length] = 1;
   }
 
 
