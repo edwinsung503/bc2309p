@@ -31,11 +31,6 @@ public class DemoStack {
     while (!stack.isEmpty()) {
       result[index ++] = stack.pop();
     }
-
     System.out.println(Arrays.toString(result));
-    
-
-
-
   }
 }
