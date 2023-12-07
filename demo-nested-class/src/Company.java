@@ -1,6 +1,11 @@
 public class Company {
   //有幾多個empolyee 都唔係屬於某一個company
+  //Class company 可以有好多 employee
   private String name ;
+
+  public static Employee creatEmployee (String empolyeeName, int empolyeeID){
+    return new Employee(empolyeeName, empolyeeID);
+  }
 
   public static class Employee {
     private String empolyeeName;
