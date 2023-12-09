@@ -5,6 +5,7 @@ public class Library {
   public Library (String prefix){
     this.prefix = prefix;
   }
+  //return book type 's createBook method
   public Book createBook(String id){
     return new Book(id);
   }

@@ -11,14 +11,13 @@ public class Company {
     private String empolyeeName;
 
     private int empolyeeID;
-
+    //constructor
     public Employee (String empolyeeName, int empolyeeID){
       this.empolyeeName = empolyeeName;
       this.empolyeeID = empolyeeID;
     }
 
     public void info(){
-
       System.out.println("Empolyee Name: "+this.empolyeeName);
       System.out.println("Empolyee ID: "+this.empolyeeID);
     }

@@ -14,7 +14,7 @@ public class Outer {
   public class InnerClass {
 
     private String name3 ;
-
+      //constructor
     public InnerClass (String name3){
       this .name3 = name3;
     }
@@ -27,7 +27,7 @@ public class Outer {
   public static class NestedClass {//Outer.NestedClass
 
     private String name2 ;
-
+//constructor
     public NestedClass (String name) {
       this.name2 = name;
     }
