@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class DemoSupplier {
+  public static void main(String[] args) {
   //T get()
+  //get().
   Supplier<Person> person = () -> {
     return new Student(1, "John");
   };
@@ -22,4 +24,5 @@ public class DemoSupplier {
 
   List<String> ll = linkedList.get();
   ll.add("Hello");
+  }
 }

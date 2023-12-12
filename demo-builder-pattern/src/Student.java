@@ -5,7 +5,7 @@ public class Student {
   private int age;
 
   private char gender ;
-
+  //Constructor
   private Student (String name, int age, char gender){
     this.name = name;
     this.age = age;

@@ -1,9 +1,9 @@
 package syntax;
 
 @FunctionalInterface
-public class SupplyString {
+public interface SupplyString {
   
-  
+  String supply();
 
   
 }

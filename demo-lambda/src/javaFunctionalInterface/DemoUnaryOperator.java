@@ -7,6 +7,7 @@ import java.util.function.UnaryOperator;
 public class DemoUnaryOperator {
   public static void main(String[] args) {
     //Function<String, String> -> UnaryOperator<String>
+    //apply(Object)
     UnaryOperator<String> uo = s -> s + "Hello";
     System.out.println(uo.apply("abc"));//abcHello
 

@@ -16,7 +16,7 @@ public static void main(String[] args) {
   };
   //how to call ?
   //Excution
-  concat1.concat("Hello"," World");
+  //concat1.concat("Hello"," World");
   System.out.println(concat1.concat("Hello"," World"));//Hello World
 
 

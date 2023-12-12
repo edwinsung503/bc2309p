@@ -1,11 +1,12 @@
 package syntax;
 
+import java.util.Random;
+
 public class DemoSyntax {
   
   public static void main(String[] args) {
     
     SupplyInteger randomOddNubmer = () -> {
-      
       int times = new Random().nextInt(10);
       return 1 + times* 2;
     };
@@ -26,7 +27,7 @@ public class DemoSyntax {
       howAreYou = () -> "goodbye";
     }
 
-    howAreYou.supply();
+    System.out.println(howAreYou.supply());;
     CharFunction cf = (s,i) -> {
       return s.charAt(i);//auto-box : char -> character
     };

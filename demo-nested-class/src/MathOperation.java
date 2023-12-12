@@ -1,5 +1,6 @@
 public interface MathOperation {
   
+
   int operate(int x, int y);//只可以有一個method
 
   public static void main(String[] args) {

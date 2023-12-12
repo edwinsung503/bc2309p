@@ -13,7 +13,7 @@ public class DemoConsumer {
     Consumer<Person> printName = p -> {
       System.out.println(p.getName());
     };
-
+    
     printName.accept(new Person("John"));
   }
 }
