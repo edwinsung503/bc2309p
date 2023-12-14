@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -69,9 +70,75 @@ public class DemoStream {
         //new 左一個新的arrayList
 
         //extend < 或者以下 
+      List<Person> persons = new ArrayList<>();
+      persons.add(new Person("John",12));
+      persons.add(new Person("Mary",22));
+      persons.add(new Person("Peter",23));
+
+      //stream.map() -> ("John","Mary","Peter");
+      List<String> result = persons.stream()//
+        .map( e -> e.getName())//
+        .collect(Collectors.toList());
+      System.out.println(result);
+
+      List<BookStore> bookStores = new ArrayList<>();
+      bookStores.add(new BookStore("Mary", List.of ("ABC","AAA")));
+      bookStores.add(new BookStore("Peter", List.of ("BAC","AAA","DES")));
+      
+
+      //StoreOwner
+      List<StoreOwner> owners = persons.stream()//
+        .filter(p -> {
+          for (BookStore bs : bookStores){
+            if (p.getName().equals(bs.getOwner())){
+              return true;
+            }
+          }
+          return false;
+        })
+        .map(e -> {//e is a person object
+          for (BookStore bs : bookStores){
+            if (e.getName().equals(bs.getOwner())){
+              return new StoreOwner(bs.getOwner(),e.getAge() ,bs.getBooks());
+            }
+          }
+          return null;
+        }).collect(Collectors.toList());
+      System.out.println(owners);
 
 
+      //Find the List<Stirng> names, who has a bookstore, can contain the "AAA" book
+      List<String> nameList = persons.stream()//
+        .filter(p -> {
+          for(BookStore bs1 : bookStores){
+            if(p.getName().equals(bs1.getOwner()) && bs1.getBooks.contains("XYZ")){
+              return true;
+            }
+          }
+          return false;
+        })  
+        .map(p -> p.getName())//改變形態
+        //.filter(p.startsWith("M"))//
+        .collect(Collectors.toList());
 
+      System.out.println(nameList);
+
+
+      //sorted()
+      List<String> nameList2 = List.of("Jenny","Mary","John");
+
+      //already create an object that has the formula s2.compareTo(s1)
+      Comparator<String> descendingName = (s1, s2) -> s2.compareTo(s1);
+      nameList2.stream()//
+      .sorted(descendingName)//
+      .forEach(e -> System.out.println(e));
+      
+
+      //Stream.class
+      //List.stream 的形態
+      Stream<String> ss3 = Stream.of("ABC","AAA","XYZ","IJK");
+      ss3.filter(e -> e.startsWith("A"))//
+      .forEach(e-> System.out.println(e));
 
   }
 }
