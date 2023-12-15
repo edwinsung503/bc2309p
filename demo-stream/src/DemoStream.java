@@ -39,7 +39,7 @@ public class DemoStream {
         //sum += str.length();
         //Stream does note allow "Write" operation on teh variable 
         //Local variable total defined in an enclosing scope must be final or effectively final
-        //只可以read 唔可以read 
+        //只可以read 唔可以write 
         //Stream 只可以用係依個block 入面的野, 但唔可以累積d野, 只係修尾的野
       });
 
@@ -111,7 +111,7 @@ public class DemoStream {
       List<String> nameList = persons.stream()//
         .filter(p -> {
           for(BookStore bs1 : bookStores){
-            if(p.getName().equals(bs1.getOwner()) && bs1.getBooks.contains("XYZ")){
+            if(p.getName().equals(bs1.getOwner()) && bs1.getBooks().contains("XYZ")){
               return true;
             }
           }

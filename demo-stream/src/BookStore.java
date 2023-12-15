@@ -12,11 +12,11 @@ public class BookStore {
     
   }
 
-  public List<String> getBooks( List<String> books){
+  public List<String> getBooks(){
     return this.books;
   }
 
-  public String getOwner (String owner){
+  public String getOwner (){
     return this.owner;
   }
 }
