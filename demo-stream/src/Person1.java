@@ -1,4 +1,4 @@
-public class Person {
+public class Person1 {
   
   private String name;
 
@@ -11,7 +11,7 @@ public class Person {
     return this.age;
   }
 
-  public Person(String name,int age){
+  public Person1(String name,int age){
     this.name=name;
     this.age=age;
   }
