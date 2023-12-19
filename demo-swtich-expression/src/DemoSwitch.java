@@ -8,22 +8,33 @@ public class DemoSwitch {
 
   public static String get(Weekday weekday){
     //Switch
-    return switch (weekday){
-      case MONDAY -> "Monday";
-      case TUSEDAY -> "Tuesday";
-      case WEDNESDAY -> "Wednesday";
-      case THURSDAY -> "Thursday";
-      case FRIDAY-> "Friday";
-      case SATURADAY -> "Saturaday";
-      case SUNDAY -> "Sunday";
-    };
+    String day = "";
+    switch (weekday) {
+      case MONDAY:
+        day = "Monday";
+        break;
+      case TUESDAY:
+        day = "Tuesday";
+        break;
+      case WEDNESDAY:
+        day = "Wednesday";
+        break;
+      case THURSDAY:
+        day = "Thursday";
+        break;
+      case FRIDAY:
+        day = "Friday";
+        break;
+      default:
+    }
+    return day;
   }
-  //
+  //Similar to Lambda expression
   public static String get2(Weekday weekday){
     //Switch
     return switch (weekday){
       case MONDAY -> "Monday";
-      case TUSEDAY -> "Tuesday";
+      case TUESDAY -> "Tuesday";
       case WEDNESDAY -> "Wednesday";
       case THURSDAY -> "Thursday";
       case FRIDAY-> "Friday";
@@ -38,7 +49,7 @@ public class DemoSwitch {
     return switch (weekday){
       case MONDAY:
         yield "Monday";
-      case TUSEDAY:
+      case TUESDAY:
         yield "Tuseday";
       case WEDNESDAY:
         yield "Wednesday";

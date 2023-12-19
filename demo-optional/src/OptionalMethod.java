@@ -8,7 +8,7 @@ public class OptionalMethod {
 
   public static List<String> database2 = List.of("xyz", "abc","ijk") ;
 
-  public static List<Person1> database3 = List.of(new Person1("John"), new Person1("Mary"),new Person1("Cherry")) ;
+  public static List<Person123> database3 = List.of(new Person123("John"), new Person123("Mary"),new Person123("Cherry")) ;
 
 
   public static void main(String[] args) {
@@ -49,19 +49,21 @@ public class OptionalMethod {
     for (int i=0; i<database.length;i++){
       if (x.equals(database[i])){
         return Optional.of(i);
+        //The Optional.of() method in Java 
+        //is used to create a non-empty Optional object that contains a non-null value. 
       } 
     }
     return Optional.empty();
-
-    //Optional 內一定有Object , 即使入面無野, 咁寫係比較安全
+    //The Optional.empty() method in Java is used to create an empty Optional object. 
+    //create an empty Optional object-> Optional 內一定有Object , 即使入面無野, 咁寫係比較安全
   }
 
   public static Optional<Integer> fromDatabase2(String s){
     Optional<String> os =  database2.stream()//
       .filter(e -> "abc".equals(e))//"abc"
       //無得用map() 因為filter 後得返String, not listOf String
-      //.map(e -> e.)//index
-      .findFirst();
+      //.map(e -> e.)//想揾返個word 的 index, 但得返String, 無得揾
+      .findFirst();//揾第一個item
     if (!os.isPresent()){
       return Optional.of(-1);
     }
@@ -69,13 +71,13 @@ public class OptionalMethod {
   }
 
   //findFirst()
-  public static Optional<Person1> fromDatabase3 (String name){
+  public static Optional<Person123> fromDatabase3 (String name){
     //Find Person by name in database3
     if (name == null){
       throw new IllegalArgumentException();
     }
     return database3.stream()//
-      .filter(e -> name.equals(e.getName(name)))//
+      .filter(e -> name.equals(e.getName()))//
       .findFirst();
   }
 }

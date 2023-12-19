@@ -7,11 +7,9 @@ public record Book(String bookName,String authorName ) {
   public static String bookStore = "ABC";
 
   public Book {//modify the all-args constructor
-    if(this.bookName == null || this.authorName== null){
+    if(bookName == null || authorName== null){
       throw new IllegalArgumentException();
     }
-    
-    
 
   }
 

@@ -3,7 +3,7 @@ import java.util.Optional;
 //Optional<T> should be used in defining the type of attribute
 //1. call API, this class may be used for deserialization , then Optional<T> may have some problems
 //2. Interact with Database, deserialization for the Optional<T> field has issue
-public class Person1 {
+public class Person123 {
   
   private String name;
 
@@ -15,11 +15,11 @@ public class Person1 {
     return this.emailAdress;
   }
 
-  public Person1(String name){
+  public Person123(String name){
     this.name = name;
   }
 
-  public String getName(String name){
+  public String getName(){
     return this.name;
   }
 

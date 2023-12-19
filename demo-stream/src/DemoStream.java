@@ -70,10 +70,10 @@ public class DemoStream {
         //new 左一個新的arrayList
 
         //extend < 或者以下 
-      List<Person1> persons = new ArrayList<>();
-      persons.add(new Person1("John",12));
-      persons.add(new Person1("Mary",22));
-      persons.add(new Person1("Peter",23));
+      List<Person12> persons = new ArrayList<>();
+      persons.add(new Person12("John",12));
+      persons.add(new Person12("Mary",22));
+      persons.add(new Person12("Peter",23));
 
       //stream.map() -> ("John","Mary","Peter");
       List<String> result = persons.stream()//
