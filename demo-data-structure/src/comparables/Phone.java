@@ -32,7 +32,7 @@ public class Phone implements Comparable<Phone>{
   public static void main(String[] args) {
     List<Phone> phones = new ArrayList<>(List.of(new Phone("iphone 13",199),new Phone("iphone 15",1199),new Phone("iphone 12",179)));
 
-    Collections.sort(phones);
+    Collections.sort(phones);//Natural ordering of objects
     System.out.println(phones);
   }
   
