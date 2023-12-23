@@ -203,4 +203,162 @@ select * from books;
 -- 2. When you use "group by" , you can only select the "group" as the column(s) as well as aggregated function
 select color, count(1),ROUND(AVG(price), 2), max(price) from books group by color ;
 -- select name, count(1), avg(price), max(price) from books group by color ; -- cannot 
+select color, count(1),avg(price), max(price), sum(id) from books group by color ;
 
+-- Aggregated functions: sum(), avg(), max(), min(), count()
+select avg(price), sum(price) / count(1) as average_price from books;
+-- Where --> Group By
+select color, count(1) from books where color in ('RED','BLUE') group by color;
+
+-- where -> group by -> having
+-- having:after the grouping, you add another criteria to fileter out some of the group(s)
+select color, avg(price)
+from books 
+where color in ('RED','BLUE') 
+group by color 
+having count(1) >=2;
+
+-- find the color of the book, where color group of the book with average price -> 10.0
+-- After grouping, you can filter the records inside the group
+-- You can only filter out the whole groups
+select color
+from books
+group by color
+having avg(price) >=10;
+
+-- JOIN(CUSTOMER1, ORDER1, ITEM)
+create table customer(
+	id integer primary key,
+    c_name varchar(50) not null,
+    email varchar(40),
+    phone varchar(20)
+);
+
+create table order1(
+	id integer primary key,
+    order_datetime datetime not null,
+    delivery_addr varchar(100),
+    order_amount decimal(10,2),
+    customer_id integer,
+    foreign key (customer_id) references customer(id) 
+    -- Constriant： ensure the customer_id (order) exists in customer table's id
+    
+);
+
+create table item(
+	id integer primary key,
+    item_desc varchar(50),
+    item_unit_price decimal(10,2),
+    item_quatity integer not null,
+    item_amount decimal(10,2),
+    order_id integer,
+    foreign key (order_id) references order1(id) 
+    -- ensure the order_id (item1) exists in order1 table's id
+);
+-- drop table customer;
+-- drop table order1 ;
+-- drop table item;
+-- 要delete 左item 先因為有foreign key -> 唔可以order 入面有孤兒仔出現
+-- 2 customers
+-- 2 orders per customers
+-- 2 items per orders
+delete from item;
+delete from order1;
+delete from customer;
+
+
+insert into customer (id, c_name, email, phone) 
+values(2,'John','john@yahoo.com','21219432');
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (12,'2020-01-22','taiwai',1.0,2);
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (13,'2020-02-22','taiwai',2.0,2);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (121,'iphone 13', 1000.0, 2,2000,12);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (122,'iphone 14', 2400.0, 1,2400,12);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (123,'iphone 13', 1000.0, 2,2000,13);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (124,'iphone 14', 2400.0, 1,2400,13);
+
+insert into customer (id, c_name, email, phone) 
+values(1,'Edwin','edwin@yahoo.com','21219418');
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (14,'2020-02-22','shatin',3.0,1);
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (15,'2020-01-22','shatin',4.0,1);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (125,'iphone 13', 1000.0, 1,2000,14);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (126,'iphone 14', 2400.0, 1,2400,14);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (127,'iphone 13', 1000.0, 1,2000,15);
+insert into item (id, item_desc, item_unit_price, item_quatity, item_amount,order_id) 
+values (128,'iphone 14', 2400.0, 1,2400,15);
+
+update item set item_amount = item_unit_price * item_quatity;
+select * from order1;
+
+-- join (inner join)
+-- customer - 2 rows
+-- order - 4 rows
+
+select c.*, o.* from customer c, order1 o ; -- 8 rows (4 X 2)
+-- Approach 1 (inner join)
+select c.*, o.* 
+from customer c, order1 o 
+where c.id = o.customer_id; -- 用where filter 走4條
+
+select c.id, c.c_name, c.phone, c.email,o.delivery_addr, o.order_amount, i.item_desc, i.item_amount
+from customer c, order1 o , item i
+where c.id = o.customer_id
+and o.id = i.order_id;
+
+-- Approcah 2 (inner join)
+select c.*, o.*
+from customer c inner join order1 o on c.id = customer_id; -- 命令佢點Join
+
+select c.id, c.c_name, c.phone, c.email,o.delivery_addr, o.order_amount, i.item_desc, i.item_amount
+from customer c 
+	inner join order1 o on c.id = o.customer_id
+    inner join item i on o.id = i.order_id
+;
+
+-- Left join
+insert into customer (id, c_name, email, phone) 
+values (3,'Peggy Chan','peggychan@yahoo.com','21219411');
+
+-- final all customers with his order hitories, including those who has no orders
+-- For those who has no order, you can just leave the order/ item data as null
+
+-- 以左邊為以歸
+select c.*, o.* 
+from customer c left join order1 o on c.id = o.customer_id;
+
+-- Right join
+select c.*, o.* 
+from order1 o right join customer c on c.id = o.customer_id;
+
+select c.id, c.c_name, c.phone, c.email,o.delivery_addr, o.order_amount, i.item_desc, i.item_amount
+from customer c 
+left join order1 o on c.id = o.customer_id
+left join  item i on o.id = i.order_id  ;
+
+-- Approach 2 sub-query -> sub titile 
+select c.*, order_item_table.*
+from customer c left join
+(select o.id ,o.customer_id
+from order1 o, item i
+where o.id = i.order_id) as order_item_table 
+on c.id = order_item_table.customer_id;
+
+-- Approach 3 common table - recommend approach
+With 
+	order_item_table as (select o.id as order_id, o.customer_id, o.delivery_addr, o.order_amount
+						from order1 o, item i
+						where o.id = i.order_id)
+select c.*, oi.*
+from customer c left join order_item_table oi on c.id - oi.customer_id;
+
+select * from item;
