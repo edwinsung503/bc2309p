@@ -45,7 +45,7 @@ public class Dog extends Animal implements Comparable<Animal>{
     //animalPrinter = dogPrinter ; -> cannot be polymorhism
     // 因為Printer 無extend dog / animal , 只係dog extend animal
 
-    Printer <String> StrnigPrinter = new Printer<>();
+    Printer <String> StringPrinter = new Printer<>();
     //Dog.makeSound(StringPrinter); -> Not Ok, T shd be in Animal Range
     Printer<Dog> dogPrinter2 = new Printer<>();
     Dog.makeSound(dogPrinter2);//OK
