@@ -362,3 +362,58 @@ select c.*, oi.*
 from customer c left join order_item_table oi on c.id - oi.customer_id;
 
 select * from item;
+
+CREATE DATABASE BOOTCAMP_EXERCISE1;
+use BOOTCAMP_EXERCISE1;
+-- Exists
+use sys;
+select * from customer;
+select * from order1;
+-- Find the name of the customers, who are having orders
+select c_name 
+from customer c
+where exists (select 1 from order1 d where d.customer_id = c.id);
+
+-- Find the name of the customers, who has no orders
+select c_name 
+from customer c
+where not exists (select 1 from order1 d where d.customer_id = c.id);
+
+-- find the name of the customer(s), who has 3 or above orders
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (22,now(),'taiwai',1000.2,2);
+
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (23,now(),'taiwai',100.2,2);
+
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (1,now(),'taiwai',100.2,2);
+
+insert into order1 (id, order_datetime,delivery_addr, order_amount,customer_id) 
+values (1,now(),'taiwai',1100.2,2);
+
+select c.id, c.c_name as name , count(1) as no_of_orders
+from customer c 
+left join order1 o
+on c.id = o.customer_id
+group by c.id
+having count(1) >= 3; -- id 已refernce unique 因為id set 為unique key
+-- having 係X 走個group
+
+-- join -> 可以拎到order data
+-- exist -> 無order data
+with order_count_table as  (
+		select o.customer_id , count(1) as no_of_orders
+		from order1 o 
+		group by o.customer_id)
+select c.c_name
+from customer c
+where exists (select 1 from order_count_table oc where oc.customer_id = c.id and oc.no_of_orders >=3)
+
+CREATE VIEW customer_details AS
+SELECT c.id CONCAT(c_name, ' ',email) AS c-info
+FROM customer c;
+
+select * from customer_details; -- cannot insert, update, delete on a 
+-- so, when we insert, update, delete on customer1, the result should reflect in the view as well.
+
