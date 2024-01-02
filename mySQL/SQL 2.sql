@@ -158,13 +158,26 @@ on d.department_id = e.department_id
 group by d.department_name;
 
 -- 9.write a query to find the employee_id ,job title, number of days between ending date and starting date for all jobs in departement id 30.
-select jh.employee_id, datediff(day,jh.end_date,jh.startdate) as days
-from job_history jh;
-
+with 
+	employee_days_table as (
+		select jh.employee_id, jh.job_id,DATEDIFF(jh.end_date,jh.start_date) as num_of_days
+		from job_history jh
+		where jh.department_id = 30
+    )
+select ed.employee_id,j.job_title, ed.num_of_days
+from employee_days_table ed
+left join jobs j
+on ed.job_id = j.job_id;
 
 -- 10.write a query to display all department name, manager name, city and country name
 
+
 -- 11.write a query to display the average salary of each department.
+select avg(e.salary) as average_salary
+from employees e
+left join departments d
+on e.department_id = d.department_id
+group by e.department_id;
 
 -- 12.Now, we try to perform normalization on table 'jobs'.
 -- a.How do you re-design the table 'jobs'? and adding table 'job grades'?
