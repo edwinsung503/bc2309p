@@ -138,6 +138,9 @@ on el.country_id = c.country_id
 where c.country_name = 'Japan';
 
 -- 6.write a query to find the employee_id, last_name along with their manager_id and last_name
+select e.employee_id, e.last_name, m.manager_id , m.last_name 
+from Employees e
+inner join Employees m on e.manager_id = m.employee_id;
 
 -- 7.write a query to find the first_name, last_name and hire date of the employees who was hired after employee 'Lex De Haan'
 with 
@@ -170,6 +173,22 @@ left join jobs j
 on ed.job_id = j.job_id;
 
 -- 10.write a query to display all department name, manager name, city and country name
+with 
+	city_country_table as (
+		select l.city, c.country_name, l.location_id
+		from locations l
+		left join countries c
+		on l.country_id = c.country_id
+    ), department_locations_table as (
+		select d.department_name,d.department_id,cct.city,cct.country_name
+		from departments d
+		left join city_country_table cct
+		on d.location_id = cct.location_id
+    )
+select dlt.department_name,concat(e.first_name,' ',e.last_name) as manager_name, dlt.city, dlt.country_name
+from department_locations_table dlt
+left join employees e
+on dlt.department_id = e.department_id;
 
 
 -- 11.write a query to display the average salary of each department.
@@ -182,3 +201,17 @@ group by e.department_id;
 -- 12.Now, we try to perform normalization on table 'jobs'.
 -- a.How do you re-design the table 'jobs'? and adding table 'job grades'?
 
+create table job_grades(
+	grade_level varchar(2) primary key,
+    lowest_sal integer not null,
+    highest_sal integer not null
+);
+
+select * from job_grades;
+
+select * from jobs;
+
+alter table jobs drop column min_salary;
+alter table jobs drop column max_salary;
+alter table jobs add column grade_level varchar(2);
+alter table jobs add foreign key (grade_level) references job_grades(grade_level);
