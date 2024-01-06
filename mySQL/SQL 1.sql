@@ -408,12 +408,15 @@ with order_count_table as  (
 		group by o.customer_id)
 select c.c_name
 from customer c
-where exists (select 1 from order_count_table oc where oc.customer_id = c.id and oc.no_of_orders >=3)
+where exists (select 1 from order_count_table oc where oc.customer_id = c.id and oc.no_of_orders >=3);
 
 CREATE VIEW customer_details AS
-SELECT c.id CONCAT(c_name, ' ',email) AS c-info
+SELECT c.id,CONCAT(c_name, ' ',email) AS c_info
 FROM customer c;
 
 select * from customer_details; -- cannot insert, update, delete on a 
 -- so, when we insert, update, delete on customer1, the result should reflect in the view as well.
 
+use sys;
+select * from customers o
+where not exists (select 1 from orders o where o.customer_id =c.id); 
