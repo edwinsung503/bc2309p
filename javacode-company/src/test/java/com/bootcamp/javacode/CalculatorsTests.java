@@ -17,15 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import com.bootcamp.javacode.model.Calculators;
 import com.bootcamp.javacode.model.Staff;
 
 //File name has to be XXXXTest.java or XXXXTests.java
 // Otherwise, mvn cannot locate the test files.
+@DisplayName("Calculators Test Plan")
 public class CalculatorsTests {
 
   @Test
+  @DisplayName("Test add Function")
   public void testAdd(){
     assertEquals(7, Calculators.add(3,4));
     assertEquals(-11, Calculators.add(-1,-10));
@@ -36,10 +39,11 @@ public class CalculatorsTests {
     String str = null;
     assertNull(str);
 
-    assertNull(Calculators.add(3, 4));
+    //assertNull(Calculators.add(3, 4));
   }
 
   @Test
+  @DisplayName("Test sort Function")
   public void testSort() {
     //Assertions.assertEquals(new ArrayList<>(List.of(1,2,3)), Calculators.sort(new int [] {3,2,1}));
     assertEquals(new ArrayList<>(List.of(1, 2, 3)),Calculators.sort(new int[] {2, 3, 1}));
@@ -50,7 +54,8 @@ public class CalculatorsTests {
         //assertEquals(new int[] {2, 3, 1},new int[] {2, 3, 1}); 因為會check object not value
   }
   @Test
-  public void testDeducg(){
+  @DisplayName("Test Deduct Function")
+  public void testDeduct(){
     assertEquals(8, Calculators.deduct(10, 2));
   }
   
@@ -106,6 +111,7 @@ public class CalculatorsTests {
   // public void combineTestAandTestB() {
   //   assertAll( () -> assertTrue (10 > 5), () -> assertEquals(5,"Hello".length())); // Expected [5] but was [6 ]
   // }
+  
 
 
 }

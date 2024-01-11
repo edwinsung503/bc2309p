@@ -12,6 +12,10 @@ public class Person {
   
   private String name;
 
+  public static String concat(String str){
+    return "hello"+str;
+  }
+
   public Person(String name){
     this.name=name;
   }
@@ -19,4 +23,6 @@ public class Person {
     return this.name;
   }
   public Person (){}
+
+  
 }
