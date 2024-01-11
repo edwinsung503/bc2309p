@@ -47,6 +47,10 @@ public class Staff extends Person {
   //   this.age = age;
   // }
 
+  public boolean isAdult() {
+    return this.age >= 18;
+  }
+
   public static void main(String[] args) {
     Staff staff = new Staff("John",12);
     System.out.println(staff.getAge());
