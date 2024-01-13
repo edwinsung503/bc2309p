@@ -7,7 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-//@TestInstance(TestInstance.Lifecycle.PER_METHOD) // by default 有 ,唔使寫都會按method 去行
+//@TestInstance(TestInstance.Lifecycle.PER_METHOD) 
+// by default 有 ,唔使寫都會按method 去行
 //per method -> before each
 //per class -> before all
 public class TestInstanceTest {
