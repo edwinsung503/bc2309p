@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.bootcamp.javacode.TestInstancePerClassTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.bootcamp.javacode.TestInstancePerClassTest
+testB  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <12> but was: <11>
+	at com.bootcamp.javacode.TestInstancePerClassTest.testB(TestInstancePerClassTest.java:44)
+
+testA  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <11> but was: <12>
+	at com.bootcamp.javacode.TestInstancePerClassTest.testA(TestInstancePerClassTest.java:37)
+

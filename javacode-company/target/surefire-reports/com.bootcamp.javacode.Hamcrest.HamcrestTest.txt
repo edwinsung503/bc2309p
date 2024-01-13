@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: com.bootcamp.javacode.Hamcrest.HamcrestTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.bootcamp.javacode.Hamcrest.HamcrestTest
+testArray  Time elapsed: 0.015 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: [<2>, <4>, <7>, <11>] in any order
+     but: no match for: <8>
+	at com.bootcamp.javacode.Hamcrest.HamcrestTest.testArray(HamcrestTest.java:80)
+
+testSring  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: is "hellowrld"
+     but: was "helloworld"
+	at com.bootcamp.javacode.Hamcrest.HamcrestTest.testSring(HamcrestTest.java:26)
+
+testTolerance  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: a numeric value within <0.01> of <3.14>
+     but: <3.129> differed by <0.0010000000000001206> more than delta <0.01>
+	at com.bootcamp.javacode.Hamcrest.HamcrestTest.testTolerance(HamcrestTest.java:100)
+

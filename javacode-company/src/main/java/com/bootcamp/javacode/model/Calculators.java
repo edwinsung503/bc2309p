@@ -9,10 +9,23 @@ import java.util.stream.Collectors;
 
 public class Calculators {
   
-  public static int add(int x, int y){ 
+  public static int add(int x, int y){ // UNIT
     // we need to define the method signature before defining the test case
     return x+y;
   }
+  //Unit Test : From calculate() method perspective, 
+  //we dont need to know what exactly add() method performs
+  //method B call Method A -> 因為method A 已經test 左無問題, 所以我唔使關心method A 
+  //When P = 10, and assume add(p,p/2) return 2, then calculate() return
+  public static int calculate(int p) {// UNIT
+    return add(p,p/2) + p+4;
+  }
+  //係咪可以cover 所有情況
+
+  public int addition(int x, int y) {//UNIT
+    return x+y;
+  }
+
   // ascending order
   public static List<Integer> sort(int[] arr){
     // arr -> list
