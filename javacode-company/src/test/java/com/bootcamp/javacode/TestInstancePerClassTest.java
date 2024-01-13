@@ -1,6 +1,7 @@
 package com.bootcamp.javacode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,8 +18,6 @@ public class TestInstancePerClassTest {
 
   private int x;
 
-  
-
   @BeforeAll // before all
 
   void init () {
@@ -34,14 +33,14 @@ public class TestInstancePerClassTest {
   @Order(2)
   void testA(){
     this.x++;
-    assertEquals(11,this.x);
+    assertEquals(12,this.x);
   }
   
   @Test
   @Order(1)
   void testB(){
     this.x++;
-    assertEquals(12,this.x);
+    assertEquals(11,this.x);
   }
   
   public static void main(String[] args) {
