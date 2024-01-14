@@ -23,7 +23,7 @@ public class HamcrestTest {
 
   @Test
   void testSring(){
-    assertThat(Person.concat("world"), is("hellowrld"));
+    assertThat(Person.concat("world"), is("helloworld"));
     assertThat(Person.concat("world"), is(not("hello")));
     assertThat(Person.concat("world"), not("hello"));
     assertThat(Person.concat("world"), not(equalTo("hello")));
@@ -77,9 +77,9 @@ public class HamcrestTest {
   @Test
   void testArray () {
     Integer [] arr = new Integer [] {2,4,7,11,8};
-    assertThat(arr, arrayContainingInAnyOrder(2,4,7,11));
+    assertThat(arr, arrayContainingInAnyOrder(2,4,8,7,11));
     assertThat(arr, arrayContaining(2,4,7,11,8));
-    assertThat(arr, not(arrayContaining(2,4,7,11,8)));
+    assertThat(arr, not(arrayContaining(2,8,7,11,4)));
 
     //int [] integers = new int [] {100,50,23};
     //assertThat(Arrays.asList(integers),hasItem(100));
@@ -97,7 +97,7 @@ public class HamcrestTest {
     assertThat(actual2, closeTo(expected,delta));
 
     double actual3 = 3.129;
-    assertThat(actual3, closeTo(expected,delta));
+    assertThat(actual3, not(closeTo(expected,delta)));
   }
 
   @Test

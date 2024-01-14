@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.bootcamp.javacode.Hamcrest.HamcrestTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.bootcamp.javacode.Hamcrest.HamcrestTest
 testArray  Time elapsed: 0.015 s  <<< FAILURE!
 java.lang.AssertionError: 
@@ -23,3 +24,6 @@ Expected: a numeric value within <0.01> of <3.14>
      but: <3.129> differed by <0.0010000000000001206> more than delta <0.01>
 	at com.bootcamp.javacode.Hamcrest.HamcrestTest.testTolerance(HamcrestTest.java:100)
 
+=======
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.bootcamp.javacode.Hamcrest.HamcrestTest
+>>>>>>> origin/main

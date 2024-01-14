@@ -67,7 +67,12 @@ public class CalculatorsTests {
     Staff staff = new Staff ("John",30);
     assertTrue(staff.isAdult());//trure
     Staff staff2 = new Staff("Mary", 17);
+<<<<<<< HEAD
     assertFalse(staff2.isAdult());//false
+=======
+    //assertTrue(staff2.isAdult());//false
+    assertFalse(staff2.isAdult());//true
+>>>>>>> origin/main
   }
 
   @Test

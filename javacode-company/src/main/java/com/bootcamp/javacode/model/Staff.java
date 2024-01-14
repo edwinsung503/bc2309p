@@ -11,7 +11,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-//@EqualsAndHashCode //--> 現在只會check age , 所以唔改age 唔會當唔同,因為call 左super
+//@EqualsAndHashCode //--> 
+//現在只會check age , 所以唔改age 唔會當唔同,因為call 左super
 @EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
@@ -57,6 +58,7 @@ public class Staff extends Person {
     staff.setAge(12);
 
     //no arg constructor-> create instances without providing inital value 
+    //有 no arg constructor - > create new object 時可以唔放野
     Staff staff2 = new Staff();
     
     // System.out.println(staff.toString());
@@ -65,7 +67,7 @@ public class Staff extends Person {
     // equals
     Staff staff3 = new Staff("John",12);
     System.out.println(staff.equals(staff3));//true
-    // hashcode
+    // hashcode -> instance of 
     System.out.println(staff.hashCode());//2318728
     System.out.println(staff3.hashCode());//2318728
 
