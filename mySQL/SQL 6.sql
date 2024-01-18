@@ -32,25 +32,41 @@ insert into matches values
 (5,30,65,3,15),
 (42,45,65,8,4);
 
+-- find the max score for selected group_id
+-- group by group_id, score
 with 
-	final_table as (
-		select m.first_player as player, sum(m.first_score) as score
+	player_table as (
+		select p.group_id , m.first_player as player_id, sum( m.first_score) as scores
 		from matches m
-		group by m.first_player
-		union 
-		select m.second_player as player, sum(m.second_score) as score
-		from matches m
-		group by m.second_player
-    ), winner_table as (
-		select ft.player, sum(ft.score) as scores
+		left join players p
+		on m.first_player = p.player_id
+		group by p.group_id ,m.first_player
+		union
+		select p1.group_id , m1.second_player as player_id,  sum(m1.second_score) as scores
+		from matches m1
+		left join players p1
+		on m1.second_player = p1.player_id
+		group by p1.group_id ,m1.second_player
+    ), summary_table as (
+		select pt.group_id ,pt.player_id, sum(pt.scores)  as final_scores
+		from player_table pt
+		group by pt.group_id ,pt.player_id
+    ), final_table as (
+		select st.group_id, max(st.final_scores) as max
+		from summary_table st
+		group by st.group_id
+    ), groupped_table as (
+		select ft.group_id,min(st.player_id) as player_id
 		from final_table ft
-		group by ft.player
-    ), result_table as (
-		select p.group_id, wt.player,wt.scores
-		from players p 
-		left join winner_table wt 
-		on p.player_id = wt.player
-        order by wt.scores desc
+		left join summary_table st
+		on ft.group_id = st.group_id and ft.max = st.final_scores
+		group by ft.group_id
     )
-select rt.group_id, rt.player
-from result_table rt;
+select p3.group_id,
+case when gt.group_id is null then p3.player_id else gt.player_id End as player_id
+from players p3
+left join groupped_table gt
+on p3.group_id = gt.group_id
+group by p3.group_id, player_id
+order by p3.group_id asc;
+
