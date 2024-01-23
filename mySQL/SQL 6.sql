@@ -47,19 +47,19 @@ with
 		left join players p1
 		on m1.second_player = p1.player_id
 		group by p1.group_id ,m1.second_player
-    ), summary_table as (
-		select pt.group_id ,pt.player_id, sum(pt.scores)  as final_scores
+    ), sum_up_table as (
+		select pt.group_id ,pt.player_id, sum(pt.scores)  as sum_up_scores
 		from player_table pt
 		group by pt.group_id ,pt.player_id
-    ), final_table as (
-		select st.group_id, max(st.final_scores) as max
-		from summary_table st
+    ), max_scores_table as (
+		select st.group_id, max(st.sum_up_scores) as max_score
+		from sum_up_table st
 		group by st.group_id
     ), groupped_table as (
 		select ft.group_id,min(st.player_id) as player_id
-		from final_table ft
-		left join summary_table st
-		on ft.group_id = st.group_id and ft.max = st.final_scores
+		from max_scores_table ft
+		left join sum_up_table st
+		on ft.group_id = st.group_id and ft.max_score = st.sum_up_scores
 		group by ft.group_id
     )
 select p3.group_id,

@@ -13,7 +13,7 @@ public abstract class Account implements AccountInterface {
 		this.accountHolder = accountHolder;
 		this.accountNumber = accountNumber;
 		this.pin = pin;
-		this.startingDeposit = startingDeposit;
+		this.balance = startingDeposit;
 	}
 
 	public AccountHolder getAccountHolder() {
@@ -21,10 +21,14 @@ public abstract class Account implements AccountInterface {
 		return this.accountHolder;
 		//return null;
 	}
-
+	
 	public boolean validatePin(int attemptedPin) {
 		// complete the function
-		//return true;
+		if (attemptedPin == pin) {
+			return true;
+		} else {
+				return false;
+		}
 	}
 
 	public double getBalance() {

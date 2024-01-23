@@ -15,6 +15,8 @@ public class CommercialAccount extends Account {
 
 	public CommercialAccount(Company company, Long accountNumber, int pin, double startingDeposit) {
 		// complete the function
+		super(company, accountNumber, pin, startingDeposit);
+		
 	}
 
 	/**
@@ -22,6 +24,7 @@ public class CommercialAccount extends Account {
 	 */
 	protected void addAuthorizedUser(Person person) {
 		// complete the function
+		this.authorizedUsers.add(person);
 	}
 
 	/**
@@ -31,6 +34,6 @@ public class CommercialAccount extends Account {
 	 */
 	public boolean isAuthorizedUser(Person person) {
 		// complete the function
-		return true;
+		return this.authorizedUsers.contains(person);
 	}
 }

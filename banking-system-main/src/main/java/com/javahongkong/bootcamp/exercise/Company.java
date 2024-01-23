@@ -5,10 +5,14 @@ public class Company extends AccountHolder {
 
 	public Company(String companyName, int taxId) {
 		// complete the function
+		super(taxId);
+		this.companyName = companyName;
 	}
 
 	public String getCompanyName() {
 		// complete the function
-		return null;
+		//return null;
+		return this.companyName;
 	}
+
 }
